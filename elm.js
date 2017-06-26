@@ -12357,7 +12357,7 @@ var _meilab$meilab$Posts$helloWorld = {
 	slug: '/post/hello-world',
 	route: _meilab$meilab$Routing$PostDetailRoute('hello-world'),
 	title: 'Hello World',
-	name: 'Hello-world',
+	name: 'hello-world',
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
