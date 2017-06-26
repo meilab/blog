@@ -24,7 +24,7 @@ home =
 
 about : Content
 about =
-    { slug = "/"
+    { slug = "/about"
     , route = AboutRoute
     , contentType = Page
     , name = "about"
@@ -36,8 +36,22 @@ about =
     }
 
 
-postlist : Content
-postlist =
+trainings : Content
+trainings =
+    { slug = "/trainings"
+    , route = TrainingRoute
+    , contentType = Page
+    , name = "trainings"
+    , title = "Training Slides"
+    , publishedDate = fromCalendarDate 2017 Jun 27
+    , author = Authors.wy
+    , markdown = RemoteData.NotAsked
+    , intro = ""
+    }
+
+
+archives : Content
+archives =
     { slug = "archive"
     , route = ArchiveRoute
     , contentType = Page
@@ -82,7 +96,8 @@ pages : List Content
 pages =
     [ home
     , about
-    , postlist
+    , trainings
+    , archives
     , notFoundContent
     , notFound404
     ]

@@ -28,3 +28,13 @@ type alias Content =
     , contentType : ContentType
     , intro : String
     }
+
+
+type alias ExternalContent =
+    { title : String
+    , name : String
+    , slug : String
+    , publishedDate : Date
+    , author : Author
+    , intro : String
+    }

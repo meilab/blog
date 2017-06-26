@@ -16,6 +16,9 @@ changeUrlCommand model route content =
         ArchiveRoute ->
             Cmd.none
 
+        TrainingRoute ->
+            Cmd.none
+
         _ ->
             FetchContent.fetch content model.url.base_url
 

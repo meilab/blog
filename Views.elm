@@ -11,8 +11,8 @@ import Styles.SharedStyles exposing (..)
 import Types exposing (..)
 import RemoteData exposing (WebData, RemoteData(..))
 import Routing exposing (Route(..))
-import ContentUtils
-import Posts
+import Views.Trainings exposing (renderTrainings)
+import Views.Archives exposing (renderArchives)
 
 
 { id, class, classList } =
@@ -39,12 +39,6 @@ header =
             []
         , h1 [] [ text "Meilab" ]
         ]
-
-
-navigation : Html Msg
-navigation =
-    nav [ class [ MenuList ] ]
-        [ text "nav" ]
 
 
 body : Model -> Html Msg
@@ -98,6 +92,9 @@ renderContent model =
         ArchiveRoute ->
             renderArchives model
 
+        TrainingRoute ->
+            renderTrainings model
+
         _ ->
             renderMarkdown model.currentContent.markdown
 
@@ -118,23 +115,3 @@ footer : Html Msg
 footer =
     Html.footer [ class [ Footer ] ]
         [ text "footer" ]
-
-
-renderArchives : Model -> Html Msg
-renderArchives model =
-    div []
-        [ h4 [] [ text "Posts of meilab" ]
-        , ul []
-            (List.map (renderArchive model.url.base_url) <| ContentUtils.filterByTitle Posts.posts model.searchPost)
-        ]
-
-
-renderArchive : String -> Content -> Html Msg
-renderArchive base_url content =
-    li [ class [ MenuItem ] ]
-        [ h4 [] [ normalLinkItem base_url content.slug content.title ]
-        , p []
-            [ text
-                ("Published on " ++ formatDate content.publishedDate ++ " by " ++ content.author.name ++ ".")
-            ]
-        ]

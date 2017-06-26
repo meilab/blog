@@ -13,12 +13,15 @@ type CssClass
     | MenuList
     | HeaderMenuList
     | MenuItem
+    | MenuLink
     | MenuSelected
     | ImgResponsive
     | ContentMeta
     | MarkdownWrapper
     | MarkdownContent
     | SubContent
+    | TrainingContainer
+    | TrainingItem
 
 
 meilabNamespace : Html.CssHelpers.Namespace String class id msg

@@ -9,6 +9,7 @@ type Route
     | AboutRoute
     | ArchiveRoute
     | PostDetailRoute String
+    | TrainingRoute
     | NotFoundRoute
 
 
@@ -33,6 +34,7 @@ matchers base_url =
         [ map HomeRoute (parseBaseUrl base_url top)
         , map AboutRoute (parseBaseUrl base_url (s "about"))
         , map ArchiveRoute (parseBaseUrl base_url (s "archive"))
+        , map TrainingRoute (parseBaseUrl base_url (s "training"))
         , map PostDetailRoute (parseBaseUrl base_url (s "post") </> string)
         ]
 
@@ -59,6 +61,9 @@ urlFor base_url route =
         ArchiveRoute ->
             base_url ++ "/archive"
 
+        TrainingRoute ->
+            base_url ++ "/training"
+
         PostDetailRoute slug ->
             base_url ++ "/post" ++ slug
 
@@ -70,5 +75,6 @@ routingItem : String -> List ( String, String, Route, String )
 routingItem base_url =
     [ ( "Home", "fa fa-apps", HomeRoute, base_url )
     , ( "About", "fa fa-list", AboutRoute, base_url ++ "/about" )
+    , ( "Training", "fa fa-list", TrainingRoute, base_url ++ "/training" )
     , ( "Archives", "fa fa-list", ArchiveRoute, base_url ++ "/archive" )
     ]

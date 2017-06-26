@@ -87,6 +87,15 @@ normalLinkItem base_url slug textToShow =
         textToShow
 
 
+externalLink : String -> String -> Html Msg
+externalLink url textToShow =
+    a
+        [ class [ MenuLink ]
+        , href url
+        ]
+        [ text textToShow ]
+
+
 formatDate : Date -> String
 formatDate =
     Date.Extra.toFormattedString "MMMM ddd, y"
