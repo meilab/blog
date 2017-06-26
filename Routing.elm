@@ -32,7 +32,7 @@ matchers base_url =
     oneOf
         [ map HomeRoute (parseBaseUrl base_url top)
         , map AboutRoute (parseBaseUrl base_url (s "about"))
-        , map ArchiveRoute (parseBaseUrl base_url (s "postlist"))
+        , map ArchiveRoute (parseBaseUrl base_url (s "archive"))
         , map PostDetailRoute (parseBaseUrl base_url (s "post") </> string)
         ]
 
@@ -51,16 +51,16 @@ urlFor : String -> Route -> String
 urlFor base_url route =
     case route of
         HomeRoute ->
-            base_url
+            base_url ++ "/"
 
         AboutRoute ->
             base_url ++ "/about"
 
         ArchiveRoute ->
-            base_url ++ "/postlist"
+            base_url ++ "/archive"
 
         PostDetailRoute slug ->
-            base_url ++ "/postdetail" ++ slug
+            base_url ++ "/post" ++ slug
 
         NotFoundRoute ->
             base_url

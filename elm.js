@@ -12135,16 +12135,16 @@ var _meilab$meilab$Routing$urlFor = F2(
 		var _p0 = route;
 		switch (_p0.ctor) {
 			case 'HomeRoute':
-				return base_url;
+				return A2(_elm_lang$core$Basics_ops['++'], base_url, '/');
 			case 'AboutRoute':
 				return A2(_elm_lang$core$Basics_ops['++'], base_url, '/about');
 			case 'ArchiveRoute':
-				return A2(_elm_lang$core$Basics_ops['++'], base_url, '/postlist');
+				return A2(_elm_lang$core$Basics_ops['++'], base_url, '/archive');
 			case 'PostDetailRoute':
 				return A2(
 					_elm_lang$core$Basics_ops['++'],
 					base_url,
-					A2(_elm_lang$core$Basics_ops['++'], '/postdetail', _p0._0));
+					A2(_elm_lang$core$Basics_ops['++'], '/post', _p0._0));
 			default:
 				return base_url;
 		}
@@ -12204,7 +12204,7 @@ var _meilab$meilab$Routing$matchers = function (base_url) {
 						A2(
 							_meilab$meilab$Routing$parseBaseUrl,
 							base_url,
-							_evancz$url_parser$UrlParser$s('postlist'))),
+							_evancz$url_parser$UrlParser$s('archive'))),
 					_1: {
 						ctor: '::',
 						_0: A2(
