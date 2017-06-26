@@ -5,6 +5,15 @@
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>Meilab</title>
             <link rel="stylesheet" href="css/meilab.css" type="text/css" >
+            <script>
+                (function(){
+                    var redirect = sessionStorage.redirect;
+                    delete sessionStorage.redirect;
+                    if (redirect && redirect != location.href) {
+                    history.replaceState(null, null, redirect);
+                    }
+                })();
+            </script>
             <script src="elm.js" charset="utf-8"></script>
         </head>
         <body>
