@@ -23,6 +23,28 @@ changeUrlCommand model route content =
             FetchContent.fetch content model.url.base_url
 
 
+changeUrlProcedure : Model -> Route -> ( Model, Cmd Msg )
+changeUrlProcedure model route =
+    case getContentForRoute route of
+        Nothing ->
+            ( { model | route = NotFoundRoute }, Navigation.modifyUrl (model.url.base_url ++ "/404") )
+
+        Just content ->
+            let
+                newContent =
+                    { content | markdown = RemoteData.Loading }
+
+                newCmd =
+                    changeUrlCommand model route newContent
+            in
+                ( { model
+                    | currentContent = newContent
+                    , route = route
+                  }
+                , newCmd
+                )
+
+
 getContentForRoute : Route -> Maybe Content
 getContentForRoute =
     ContentUtils.findByRoute ContentUtils.allContent
@@ -33,33 +55,10 @@ update msg model =
     case msg of
         OnLocationChange location ->
             let
-                tempRoute =
+                newRoute =
                     parseLocation location model.url.base_url
-
-                ( newContent, newRoute, newCmd ) =
-                    case getContentForRoute tempRoute of
-                        Nothing ->
-                            ( model.currentContent, NotFoundRoute, Navigation.modifyUrl (model.url.base_url ++ "/404") )
-
-                        Just content ->
-                            let
-                                newContent =
-                                    { content | markdown = RemoteData.Loading }
-
-                                newCmd =
-                                    changeUrlCommand model tempRoute newContent
-                            in
-                                ( newContent
-                                , tempRoute
-                                , newCmd
-                                )
             in
-                ( { model
-                    | route = newRoute
-                    , currentContent = newContent
-                  }
-                , newCmd
-                )
+                changeUrlProcedure model newRoute
 
         NewUrl url ->
             model

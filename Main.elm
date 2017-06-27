@@ -18,6 +18,11 @@ main =
         }
 
 
+ghProjectName : String
+ghProjectName =
+    "elm_blog"
+
+
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
     let
@@ -25,15 +30,12 @@ init location =
             case
                 location.pathname
                     |> String.split "/"
-                    |> List.reverse
-                    |> List.tail
-                    |> Maybe.map (List.reverse)
-                    |> Maybe.map (String.join "/")
+                    |> List.member ghProjectName
             of
-                Just url ->
-                    url
+                True ->
+                    "/" ++ ghProjectName
 
-                Nothing ->
+                False ->
                     ""
 
         currentRoute =
@@ -41,11 +43,6 @@ init location =
 
         url =
             { base_url = base_url }
-
-        initModel =
-            initialModel currentRoute url
-
-        initialCommand =
-            changeUrlCommand (initialModel currentRoute url) currentRoute initModel.currentContent
     in
-        ( initModel, initialCommand )
+        changeUrlProcedure (initialModel currentRoute url)
+            currentRoute

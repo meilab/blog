@@ -13346,54 +13346,53 @@ var _meilab$meilab$Update$changeUrlCommand = F3(
 				return A2(_meilab$meilab$FetchContent$fetch, content, model.url.base_url);
 		}
 	});
+var _meilab$meilab$Update$changeUrlProcedure = F2(
+	function (model, route) {
+		var _p1 = _meilab$meilab$Update$getContentForRoute(route);
+		if (_p1.ctor === 'Nothing') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{route: _meilab$meilab$Routing$NotFoundRoute}),
+				_1: _elm_lang$navigation$Navigation$modifyUrl(
+					A2(_elm_lang$core$Basics_ops['++'], model.url.base_url, '/404'))
+			};
+		} else {
+			var newContent = _elm_lang$core$Native_Utils.update(
+				_p1._0,
+				{markdown: _krisajenkins$remotedata$RemoteData$Loading});
+			var newCmd = A3(_meilab$meilab$Update$changeUrlCommand, model, route, newContent);
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{currentContent: newContent, route: route}),
+				_1: newCmd
+			};
+		}
+	});
 var _meilab$meilab$Update$update = F2(
 	function (msg, model) {
-		var _p1 = msg;
-		switch (_p1.ctor) {
+		var _p2 = msg;
+		switch (_p2.ctor) {
 			case 'OnLocationChange':
-				var tempRoute = A2(_meilab$meilab$Routing$parseLocation, _p1._0, model.url.base_url);
-				var _p2 = function () {
-					var _p3 = _meilab$meilab$Update$getContentForRoute(tempRoute);
-					if (_p3.ctor === 'Nothing') {
-						return {
-							ctor: '_Tuple3',
-							_0: model.currentContent,
-							_1: _meilab$meilab$Routing$NotFoundRoute,
-							_2: _elm_lang$navigation$Navigation$modifyUrl(
-								A2(_elm_lang$core$Basics_ops['++'], model.url.base_url, '/404'))
-						};
-					} else {
-						var newContent = _elm_lang$core$Native_Utils.update(
-							_p3._0,
-							{markdown: _krisajenkins$remotedata$RemoteData$Loading});
-						var newCmd = A3(_meilab$meilab$Update$changeUrlCommand, model, tempRoute, newContent);
-						return {ctor: '_Tuple3', _0: newContent, _1: tempRoute, _2: newCmd};
-					}
-				}();
-				var newContent = _p2._0;
-				var newRoute = _p2._1;
-				var newCmd = _p2._2;
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{route: newRoute, currentContent: newContent}),
-					_1: newCmd
-				};
+				var newRoute = A2(_meilab$meilab$Routing$parseLocation, _p2._0, model.url.base_url);
+				return A2(_meilab$meilab$Update$changeUrlProcedure, model, newRoute);
 			case 'NewUrl':
 				return A2(
 					_elm_lang$core$Platform_Cmd_ops['!'],
 					model,
 					{
 						ctor: '::',
-						_0: _elm_lang$navigation$Navigation$newUrl(_p1._0),
+						_0: _elm_lang$navigation$Navigation$newUrl(_p2._0),
 						_1: {ctor: '[]'}
 					});
 			case 'FetchedContent':
 				var currentContent = model.currentContent;
 				var newContent = _elm_lang$core$Native_Utils.update(
 					currentContent,
-					{markdown: _p1._0});
+					{markdown: _p2._0});
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -13406,32 +13405,25 @@ var _meilab$meilab$Update$update = F2(
 		}
 	});
 
+var _meilab$meilab$Main$ghProjectName = 'elm_blog';
 var _meilab$meilab$Main$init = function (location) {
 	var base_url = function () {
 		var _p0 = A2(
-			_elm_lang$core$Maybe$map,
-			_elm_lang$core$String$join('/'),
-			A2(
-				_elm_lang$core$Maybe$map,
-				_elm_lang$core$List$reverse,
-				_elm_lang$core$List$tail(
-					_elm_lang$core$List$reverse(
-						A2(_elm_lang$core$String$split, '/', location.pathname)))));
-		if (_p0.ctor === 'Just') {
-			return _p0._0;
+			_elm_lang$core$List$member,
+			_meilab$meilab$Main$ghProjectName,
+			A2(_elm_lang$core$String$split, '/', location.pathname));
+		if (_p0 === true) {
+			return A2(_elm_lang$core$Basics_ops['++'], '/', _meilab$meilab$Main$ghProjectName);
 		} else {
 			return '';
 		}
 	}();
 	var currentRoute = A2(_meilab$meilab$Routing$parseLocation, location, base_url);
 	var url = {base_url: base_url};
-	var initModel = A2(_meilab$meilab$Models$initialModel, currentRoute, url);
-	var initialCommand = A3(
-		_meilab$meilab$Update$changeUrlCommand,
+	return A2(
+		_meilab$meilab$Update$changeUrlProcedure,
 		A2(_meilab$meilab$Models$initialModel, currentRoute, url),
-		currentRoute,
-		initModel.currentContent);
-	return {ctor: '_Tuple2', _0: initModel, _1: initialCommand};
+		currentRoute);
 };
 var _meilab$meilab$Main$main = A2(
 	_elm_lang$navigation$Navigation$program,
