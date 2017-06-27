@@ -13,6 +13,7 @@ import RemoteData exposing (WebData, RemoteData(..))
 import Routing exposing (Route(..))
 import Views.Trainings exposing (renderTrainings)
 import Views.Archives exposing (renderArchives)
+import Views.Authors exposing (renderAuthors)
 
 
 { id, class, classList } =
@@ -59,9 +60,6 @@ mainBody model =
 renderMeta : Content -> Html Msg
 renderMeta content =
     case content.contentType of
-        Types.Page ->
-            div [] []
-
         Types.Post ->
             div [ class [ ContentMeta ] ]
                 [ p []
@@ -69,6 +67,9 @@ renderMeta content =
                         ("Published on " ++ ViewHelpers.formatDate content.publishedDate ++ " by " ++ content.author.name ++ ".")
                     ]
                 ]
+
+        _ ->
+            div [] []
 
 
 convertMarkdownToHtml : WebData String -> Html Msg
@@ -94,6 +95,9 @@ renderContent model =
 
         TrainingRoute ->
             renderTrainings model
+
+        AuthorRoute ->
+            renderAuthors
 
         _ ->
             renderMarkdown model.currentContent.markdown

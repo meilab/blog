@@ -64,6 +64,20 @@ archives =
     }
 
 
+authors : Content
+authors =
+    { slug = "author"
+    , route = AuthorRoute
+    , contentType = AuthorPage
+    , name = "author"
+    , title = "Author"
+    , publishedDate = fromCalendarDate 2017 Jun 28
+    , author = Authors.wy
+    , markdown = RemoteData.NotAsked
+    , intro = ""
+    }
+
+
 notFoundContent : Content
 notFoundContent =
     { slug = "notfound"
@@ -98,6 +112,7 @@ pages =
     , about
     , trainings
     , archives
+    , authors
     , notFoundContent
     , notFound404
     ]

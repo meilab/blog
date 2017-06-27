@@ -19,6 +19,9 @@ changeUrlCommand model route content =
         TrainingRoute ->
             Cmd.none
 
+        AuthorRoute ->
+            Cmd.none
+
         _ ->
             FetchContent.fetch content model.url.base_url
 
@@ -58,7 +61,9 @@ update msg model =
                 newRoute =
                     parseLocation location model.url.base_url
             in
-                changeUrlProcedure model newRoute
+                changeUrlProcedure
+                    model
+                    newRoute
 
         NewUrl url ->
             model

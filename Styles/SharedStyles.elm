@@ -22,6 +22,9 @@ type CssClass
     | SubContent
     | TrainingContainer
     | TrainingItem
+    | AuthorContainer
+    | AuthorItem
+    | AuthorMeta
 
 
 meilabNamespace : Html.CssHelpers.Namespace String class id msg

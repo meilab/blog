@@ -29,5 +29,8 @@ locationForContentType contentType =
         Page ->
             "pages/"
 
+        AuthorPage ->
+            "pages/"
+
         Post ->
             "posts/"
