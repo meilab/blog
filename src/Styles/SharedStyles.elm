@@ -25,6 +25,8 @@ type CssClass
     | AuthorItem
     | AuthorMeta
     | Spacing
+    | TagContainer
+    | TagItem
       -- Header and Footer
     | Header
     | Footer

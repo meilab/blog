@@ -12725,6 +12725,8 @@ var _meilab$meilab$Styles_SharedStyles$BlogPost = {ctor: 'BlogPost'};
 var _meilab$meilab$Styles_SharedStyles$PostHero = {ctor: 'PostHero'};
 var _meilab$meilab$Styles_SharedStyles$Footer = {ctor: 'Footer'};
 var _meilab$meilab$Styles_SharedStyles$Header = {ctor: 'Header'};
+var _meilab$meilab$Styles_SharedStyles$TagItem = {ctor: 'TagItem'};
+var _meilab$meilab$Styles_SharedStyles$TagContainer = {ctor: 'TagContainer'};
 var _meilab$meilab$Styles_SharedStyles$Spacing = {ctor: 'Spacing'};
 var _meilab$meilab$Styles_SharedStyles$AuthorMeta = {ctor: 'AuthorMeta'};
 var _meilab$meilab$Styles_SharedStyles$AuthorItem = {ctor: 'AuthorItem'};
@@ -13295,7 +13297,114 @@ var _meilab$meilab$Views$hero = A2(
 				_0: _elm_lang$html$Html$text('Meilab'),
 				_1: {ctor: '[]'}
 			}),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h3,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Technology Consultant  and Training'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _meilab$meilab$Views$class(
+							{
+								ctor: '::',
+								_0: _meilab$meilab$Styles_SharedStyles$TagContainer,
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$h3,
+							{
+								ctor: '::',
+								_0: _meilab$meilab$Views$class(
+									{
+										ctor: '::',
+										_0: _meilab$meilab$Styles_SharedStyles$TagItem,
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Elm'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$h3,
+								{
+									ctor: '::',
+									_0: _meilab$meilab$Views$class(
+										{
+											ctor: '::',
+											_0: _meilab$meilab$Styles_SharedStyles$TagItem,
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Elixir'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$h3,
+									{
+										ctor: '::',
+										_0: _meilab$meilab$Views$class(
+											{
+												ctor: '::',
+												_0: _meilab$meilab$Styles_SharedStyles$TagItem,
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('IoT'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$h3,
+										{
+											ctor: '::',
+											_0: _meilab$meilab$Views$class(
+												{
+													ctor: '::',
+													_0: _meilab$meilab$Styles_SharedStyles$TagItem,
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Blockchain'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}
+		}
 	});
 var _meilab$meilab$Views$renderMeta = function (content) {
 	var _p1 = content.contentType;

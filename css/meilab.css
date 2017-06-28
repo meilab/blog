@@ -65,6 +65,7 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -100,4 +101,15 @@ a {
 
 .meilabSpacing {
     padding: 50px 0;
+}
+
+.meilabTagContainer {
+    display: flex;
+}
+
+.meilabTagItem {
+    flex: 1;
+    border: 1px solid #dddddd;
+    margin: 0.3em;
+    padding: 0.3em;
 }

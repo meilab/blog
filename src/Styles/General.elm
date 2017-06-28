@@ -69,6 +69,7 @@ css =
             , backgroundRepeat noRepeat
             , backgroundSize cover
             , displayFlex
+            , flexDirection column
             , justifyContent center
             , alignItems center
             , textAlign center
@@ -102,4 +103,13 @@ css =
             ]
         , class Spacing
             [ padding2 (px 50) zero ]
+        , class TagContainer
+            [ displayFlex
+            ]
+        , class TagItem
+            [ flex (int 1)
+            , border3 (px 1) solid silver
+            , margin (Css.em 0.3)
+            , padding (Css.em 0.3)
+            ]
         ]

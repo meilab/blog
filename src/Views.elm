@@ -34,6 +34,13 @@ hero : Html Msg
 hero =
     div [ class [ Hero ] ]
         [ h1 [] [ text "Meilab" ]
+        , h3 [] [ text "Technology Consultant  and Training" ]
+        , div [ class [ TagContainer ] ]
+            [ h3 [ class [ TagItem ] ] [ text "Elm" ]
+            , h3 [ class [ TagItem ] ] [ text "Elixir" ]
+            , h3 [ class [ TagItem ] ] [ text "IoT" ]
+            , h3 [ class [ TagItem ] ] [ text "Blockchain" ]
+            ]
         ]
 
 
