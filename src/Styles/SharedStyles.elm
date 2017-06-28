@@ -5,10 +5,9 @@ import Html.CssHelpers exposing (withNamespace)
 
 type CssClass
     = Layout
-    | Header
     | Body
+    | Hero
     | ContentContainer
-    | Footer
     | MenuContainer
     | MenuList
     | HeaderMenuList
@@ -25,6 +24,13 @@ type CssClass
     | AuthorContainer
     | AuthorItem
     | AuthorMeta
+    | Spacing
+      -- Header and Footer
+    | Header
+    | Footer
+      -- For Post
+    | PostHero
+    | BlogPost
 
 
 meilabNamespace : Html.CssHelpers.Namespace String class id msg

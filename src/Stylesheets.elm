@@ -1,7 +1,8 @@
 port module Stylesheets exposing (..)
 
 import Css.File exposing (CssFileStructure, CssCompilerProgram)
-import Styles.HomeCss exposing (..)
+import Styles.Home exposing (..)
+import Styles.General exposing (..)
 
 
 port files : CssFileStructure -> Cmd msg
@@ -12,7 +13,9 @@ fileStructures =
     Css.File.toFileStructure
         [ ( "/css/meilab.css"
           , Css.File.compile
-                [ Styles.HomeCss.css ]
+                [ Styles.Home.css
+                , Styles.General.css
+                ]
           )
         ]
 

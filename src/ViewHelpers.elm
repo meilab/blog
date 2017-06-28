@@ -1,7 +1,7 @@
 module ViewHelpers exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, href)
+import Html.Attributes exposing (src, href)
 import Messages exposing (Msg(..))
 import Routing exposing (Route, routingItem, urlFor)
 import Html.Events exposing (onInput)
@@ -28,10 +28,23 @@ navigationOnClick msg =
 
 navContainer : Model -> Html Msg
 navContainer model =
-    nav [ class [ MenuContainer ] ]
-        [ ul [ class [ MenuList ] ]
-            (List.map (navItem model) (routingItem model.url.base_url))
+    nav [ class [ MenuContainer, Header ] ]
+        [ navHeading model
+        , navigation model
         ]
+
+
+navHeading : Model -> Html Msg
+navHeading model =
+    ul [ class [ MenuList ] ]
+        [ normalLinkItem model.url.base_url "/" "Meilab"
+        ]
+
+
+navigation : Model -> Html Msg
+navigation model =
+    ul [ class [ MenuList ] ]
+        (List.map (navItem model) (routingItem model.url.base_url))
 
 
 navItem : Model -> ( String, String, Route, String ) -> Html Msg

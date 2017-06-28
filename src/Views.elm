@@ -1,7 +1,7 @@
 module Views exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (href, src)
+import Html.Attributes exposing (href)
 import Markdown
 import Messages exposing (Msg(..))
 import Models exposing (..)
@@ -24,21 +24,16 @@ view : Model -> Html Msg
 view model =
     div [ class [ Layout ] ]
         [ navContainer model
-        , header
+        , hero
         , body model
         , footer
         ]
 
 
-header : Html Msg
-header =
-    Html.header [ class [ Header ] ]
-        [ img
-            [ src "/image/elm.png"
-            , class [ ImgResponsive ]
-            ]
-            []
-        , h1 [] [ text "Meilab" ]
+hero : Html Msg
+hero =
+    div [ class [ Hero ] ]
+        [ h1 [] [ text "Meilab" ]
         ]
 
 
