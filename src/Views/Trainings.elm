@@ -1,17 +1,31 @@
-module Views.Trainings exposing (renderTrainings)
+module Views.Trainings exposing (trainingView)
 
 import Models exposing (..)
 import Messages exposing (Msg(..))
 import Html exposing (..)
+import Html.Events exposing (onClick)
 import Html.CssHelpers exposing (withNamespace)
 import Types exposing (ExternalContent)
 import ViewHelpers exposing (formatDate, externalLink)
 import Trainings exposing (trainings)
 import Styles.SharedStyles exposing (..)
+import Views.SharedViews exposing (..)
 
 
 { id, class, classList } =
     withNamespace "meilab"
+
+
+trainingView : Model -> Html Msg
+trainingView model =
+    div
+        [ class [ ContentContainer ]
+        , onClick HideSideMenu
+        ]
+        [ hero model.currentContent.hero (class [ PostHero ])
+        , renderTrainings model
+        , Views.SharedViews.footer
+        ]
 
 
 renderTrainings : Model -> Html Msg

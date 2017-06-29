@@ -32,6 +32,7 @@ type alias Content =
     , markdown : WebData String
     , contentType : ContentType
     , intro : String
+    , hero : String
     }
 
 

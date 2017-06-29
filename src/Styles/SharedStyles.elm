@@ -8,7 +8,7 @@ type CssClass
     | Container
     | ContentContainer
     | Body
-    | Hero
+    | HomePageHero
     | SideBarWrapper
     | SideBarMenu
     | MenuContainer

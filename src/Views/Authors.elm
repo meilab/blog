@@ -1,17 +1,31 @@
-module Views.Authors exposing (renderAuthors)
+module Views.Authors exposing (authorView)
 
 import Models exposing (..)
 import Authors
 import Messages exposing (Msg(..))
 import Html exposing (..)
+import Html.Events exposing (onClick)
 import Html.CssHelpers exposing (withNamespace)
 import Types exposing (Author)
 import ViewHelpers exposing (formatDate, externalLink)
 import Styles.SharedStyles exposing (..)
+import Views.SharedViews exposing (..)
 
 
 { id, class, classList } =
     withNamespace "meilab"
+
+
+authorView : Model -> Html Msg
+authorView model =
+    div
+        [ class [ ContentContainer ]
+        , onClick HideSideMenu
+        ]
+        [ hero model.currentContent.hero (class [ PostHero ])
+        , renderAuthors
+        , Views.SharedViews.footer
+        ]
 
 
 renderAuthors : Html Msg

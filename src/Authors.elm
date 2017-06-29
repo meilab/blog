@@ -6,7 +6,7 @@ import Types exposing (Author)
 wy : Author
 wy =
     { name = "Wang Yi"
-    , avator = "..."
+    , avator = "/image/wy.png"
     , email = "linucywang@aliyun.com"
     , bio = "Coder"
     , blog = "https://meilab.github.io/elm_blog/"

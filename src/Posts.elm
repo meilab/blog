@@ -19,6 +19,7 @@ helloWorld =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
+    , hero = "/image/cover4.jpg"
     }
 
 

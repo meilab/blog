@@ -53,7 +53,7 @@ css =
             , textAlign center
             , display block
             , padding (px 10)
-            , color snow
+            , color black
             ]
         , class Layout
             [ displayFlex
@@ -67,11 +67,9 @@ css =
             , displayFlex
             , flexDirection column
             ]
-        , class Hero
+        , each [ class HomePageHero, class PostHero ]
             [ color snow
             , width (pct 100)
-            , height (vh 100)
-            , backgroundImage (url "/image/cover1.jpg")
             , backgroundColor (hex "#222")
             , backgroundAttachment fixed
             , backgroundRepeat noRepeat
@@ -82,6 +80,11 @@ css =
             , alignItems center
             , textAlign center
             ]
+        , class HomePageHero
+            [ height (vh 100)
+            ]
+        , class PostHero
+            [ height (vh 60) ]
         , each [ class MenuContainer, class MenuContainerVertical ]
             [ displayFlex
             , justifyContent spaceBetween
@@ -109,12 +112,6 @@ css =
             , listStyle none
             , padding zero
             , margin zero
-            , descendants
-                [ a
-                    [ textDecoration none
-                    , color black
-                    ]
-                ]
             ]
         , class MenuListVertical
             [ flexDirection column ]
@@ -153,7 +150,7 @@ css =
             , padding (Css.em 0.3)
             ]
         , mediaQuery "screen and (max-width : 48em)"
-            [ class Hero
+            [ class HomePageHero
                 [ height (vh 60)
                 , minHeight (px 240)
                 , padding2 (pct 15) zero

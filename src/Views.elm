@@ -11,9 +11,12 @@ import Styles.SharedStyles exposing (..)
 import Types exposing (..)
 import RemoteData exposing (WebData, RemoteData(..))
 import Routing exposing (Route(..))
-import Views.Trainings exposing (renderTrainings)
-import Views.Archives exposing (renderArchives)
-import Views.Authors exposing (renderAuthors)
+import Views.Trainings exposing (trainingView)
+import Views.Archives exposing (archiveView)
+import Views.Authors exposing (authorView)
+import Views.Home exposing (homeView)
+import Views.About exposing (aboutView)
+import Views.Page exposing (pageView)
 
 
 { id, class, classList } =
@@ -23,115 +26,38 @@ import Views.Authors exposing (renderAuthors)
 view : Model -> Html Msg
 view model =
     let
-        ( sideMenuClass, contentOnClickCmd ) =
+        contentView =
+            case model.route of
+                HomeRoute ->
+                    homeView model
+
+                TrainingRoute ->
+                    trainingView model
+
+                AboutRoute ->
+                    aboutView model
+
+                AuthorRoute ->
+                    authorView model
+
+                ArchiveRoute ->
+                    archiveView model
+
+                _ ->
+                    pageView model
+
+        sideMenuClass =
             case model.ui.sideMenuActive of
                 True ->
-                    ( MenuActive, ToggleSideMenu )
+                    MenuActive
 
                 False ->
-                    ( MenuInActive, NoOp )
+                    MenuInActive
     in
         div [ class [ Container ] ]
             [ toggleMenu sideMenuClass
             , div [ class [ SideBarWrapper, sideMenuClass ] ]
                 [ verticalNav model
                 ]
-            , div [ class [ ContentContainer ], onClick contentOnClickCmd ]
-                [ hero
-                , body model
-                , footer
-                ]
+            , contentView
             ]
-
-
-hero : Html Msg
-hero =
-    div [ class [ Hero ] ]
-        [ h1 [] [ text "Meilab" ]
-        , h3 [] [ text "Technology Consultant  and Training" ]
-        , div [ class [ TagContainer ] ]
-            [ h3 [ class [ TagItem ] ] [ text "Elm" ]
-            , h3 [ class [ TagItem ] ] [ text "Elixir" ]
-            , h3 [ class [ TagItem ] ] [ text "IoT" ]
-            , h3 [ class [ TagItem ] ] [ text "Blockchain" ]
-            ]
-        ]
-
-
-body : Model -> Html Msg
-body model =
-    section [ class [ Body ] ]
-        [ mainBody model, subContent ]
-
-
-mainBody : Model -> Html Msg
-mainBody model =
-    div []
-        [ h1 [] [ text model.currentContent.title ]
-        , renderMeta model.currentContent
-        , renderContent model
-        ]
-
-
-renderMeta : Content -> Html Msg
-renderMeta content =
-    case content.contentType of
-        Types.Post ->
-            div [ class [ ContentMeta ] ]
-                [ p []
-                    [ text
-                        ("Published on " ++ ViewHelpers.formatDate content.publishedDate ++ " by " ++ content.author.name ++ ".")
-                    ]
-                ]
-
-        _ ->
-            div [] []
-
-
-convertMarkdownToHtml : WebData String -> Html Msg
-convertMarkdownToHtml markdown =
-    case markdown of
-        Success data ->
-            Markdown.toHtml [ class [ MarkdownContent ] ] data
-
-        Failure err ->
-            Debug.log (toString (err))
-                text
-                "There was an error"
-
-        _ ->
-            text "Loading"
-
-
-renderContent : Model -> Html Msg
-renderContent model =
-    case model.route of
-        ArchiveRoute ->
-            renderArchives model
-
-        TrainingRoute ->
-            renderTrainings model
-
-        AuthorRoute ->
-            renderAuthors
-
-        _ ->
-            renderMarkdown model.currentContent.markdown
-
-
-renderMarkdown : WebData String -> Html Msg
-renderMarkdown markdown =
-    article [ class [ MarkdownWrapper ] ]
-        [ convertMarkdownToHtml markdown ]
-
-
-subContent : Html Msg
-subContent =
-    div [ class [ SubContent ] ]
-        [ p [] [ text "" ] ]
-
-
-footer : Html Msg
-footer =
-    Html.footer [ class [ Footer ] ]
-        [ text "footer" ]
