@@ -55,6 +55,16 @@ a {
     flex-direction: column;
 }
 
+.meilabContainer {
+    display: flex;
+}
+
+.meilabContentContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .meilabHero {
     color: #FFFFFF;
     width: 100%;
@@ -71,13 +81,35 @@ a {
     text-align: center;
 }
 
-.meilabMenuContainer {
+.meilabMenuContainer, .meilabMenuContainerVertical {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.meilabMenuList, .meilabHeaderMenuList {
+.meilabMenuContainerVertical {
+    flex-direction: column;
+}
+
+.meilabSideBarWrapper {
+    flex: 0 0 150px;
+}
+
+.meilabSideBarWrapper.meilabMenuInActive {
+    display: none;
+}
+
+.meilabSideBarMenu {
+    position: fixed;
+    width: 150px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(164, 0, 48, 0.5);
+}
+
+.meilabMenuList, .meilabMenuListVertical, .meilabHeaderMenuList {
     display: flex;
     justify-content: center;
     list-style: none;
@@ -85,9 +117,13 @@ a {
     margin: 0;
 }
 
-.meilabMenuList  a, .meilabHeaderMenuList  a {
+.meilabMenuList  a, .meilabMenuListVertical  a, .meilabHeaderMenuList  a {
     text-decoration: none;
     color: #111111;
+}
+
+.meilabMenuListVertical {
+    flex-direction: column;
 }
 
 .meilabHeaderMenuList {
@@ -97,6 +133,23 @@ a {
 .meilabMenuItem {
     flex: 1;
     padding: 0 1rem;
+}
+
+.meilabMenuToggler {
+    position: absolute;
+    color: #FFFFFF;
+    padding: 5px;
+    left: 20px;
+    top: 20px;
+    border: 1px solid #dddddd;
+}
+
+.meilabMenuToggler.meilabMenuActive {
+    left: 170px;
+}
+
+.meilabMenuToggler  li {
+    list-style-type: none;
 }
 
 .meilabSpacing {
@@ -112,4 +165,12 @@ a {
     border: 1px solid #dddddd;
     margin: 0.3em;
     padding: 0.3em;
+}
+
+@media screen and (max-width : 48em) {
+        .meilabHero {
+    height: 60vh;
+    min-height: 240px;
+    padding: 15% 0;
+}
 }

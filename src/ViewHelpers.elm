@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (src, href)
 import Messages exposing (Msg(..))
 import Routing exposing (Route, routingItem, urlFor)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onClick)
 import Json.Decode as JD
 import Models exposing (Model)
 import Html.CssHelpers exposing (withNamespace)
@@ -26,25 +26,30 @@ navigationOnClick msg =
         (JD.succeed msg)
 
 
-navContainer : Model -> Html Msg
-navContainer model =
-    nav [ class [ MenuContainer, Header ] ]
-        [ navHeading model
-        , navigation model
+toggleMenu : CssClass -> Html Msg
+toggleMenu sideMenuClass =
+    --linkItem (class [ MenuToggler, sideMenuClass ]) NoOp (class []) "" "#menu" "menu"
+    span [ onClick ToggleSideMenu, class [ MenuToggler, sideMenuClass ] ] [ text "menu" ]
+
+
+horizontalNav : Model -> Html Msg
+horizontalNav model =
+    navigation model (class [ MenuContainer ]) (class [ MenuList ])
+
+
+verticalNav : Model -> Html Msg
+verticalNav model =
+    navigation model (class [ SideBarMenu ]) (class [ MenuListVertical ])
+
+
+navigation : Model -> Attribute Msg -> Attribute Msg -> Html Msg
+navigation model navClass menuClass =
+    nav [ navClass ]
+        [ ul [ menuClass ]
+            [ normalLinkItem model.url.base_url "/" "Meilab" ]
+        , ul [ menuClass ]
+            (List.map (navItem model) (routingItem model.url.base_url))
         ]
-
-
-navHeading : Model -> Html Msg
-navHeading model =
-    ul [ class [ MenuList ] ]
-        [ normalLinkItem model.url.base_url "/" "Meilab"
-        ]
-
-
-navigation : Model -> Html Msg
-navigation model =
-    ul [ class [ MenuList ] ]
-        (List.map (navItem model) (routingItem model.url.base_url))
 
 
 navItem : Model -> ( String, String, Route, String ) -> Html Msg
@@ -82,6 +87,7 @@ linkItem liClass onClickCmd aClass iconClass slug textToShow =
         [ a
             [ href slug
             , navigationOnClick (onClickCmd)
+            , navigationOnClick ToggleSideMenu
             , aClass
             ]
             [ i [ Html.Attributes.class iconClass ] []

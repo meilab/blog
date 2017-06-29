@@ -81,5 +81,10 @@ update msg model =
                 , Cmd.none
                 )
 
+        ToggleSideMenu ->
+            ( { model | ui = Ui (not model.ui.sideMenuActive) }
+            , Cmd.none
+            )
+
         NoOp ->
             ( model, Cmd.none )

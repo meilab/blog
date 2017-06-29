@@ -59,6 +59,14 @@ css =
             [ displayFlex
             , flexDirection column
             ]
+        , class Container
+            [ displayFlex
+            ]
+        , class ContentContainer
+            [ flex (int 1)
+            , displayFlex
+            , flexDirection column
+            ]
         , class Hero
             [ color snow
             , width (pct 100)
@@ -74,12 +82,28 @@ css =
             , alignItems center
             , textAlign center
             ]
-        , class MenuContainer
+        , each [ class MenuContainer, class MenuContainerVertical ]
             [ displayFlex
             , justifyContent spaceBetween
             , alignItems center
             ]
-        , each [ class MenuList, class HeaderMenuList ]
+        , class MenuContainerVertical
+            [ flexDirection column ]
+        , class SideBarWrapper
+            [ flex3 (int 0) (int 0) menuWidth
+            , withClass MenuInActive
+                [ display none ]
+            ]
+        , class SideBarMenu
+            [ position fixed
+            , width menuWidth
+            , height (vh 100)
+            , displayFlex
+            , flexDirection column
+            , justifyContent flexStart
+            , backgroundColor ember
+            ]
+        , each [ class MenuList, class MenuListVertical, class HeaderMenuList ]
             [ displayFlex
             , justifyContent center
             , listStyle none
@@ -92,6 +116,8 @@ css =
                     ]
                 ]
             ]
+        , class MenuListVertical
+            [ flexDirection column ]
         , class HeaderMenuList
             [ display block
             ]
@@ -100,6 +126,20 @@ css =
             , padding2 zero (Css.rem 1)
 
             -- , border3 (px 1) solid silver
+            ]
+        , class MenuToggler
+            [ position absolute
+            , color white
+            , padding (px 5)
+            , left toggleMenuLeftCollapsed
+            , top (px 20)
+            , border3 (px 1) solid silver
+            , descendants
+                [ li
+                    [ listStyleType none ]
+                ]
+            , withClass MenuActive
+                [ left toggleMenuLeft ]
             ]
         , class Spacing
             [ padding2 (px 50) zero ]
@@ -111,5 +151,12 @@ css =
             , border3 (px 1) solid silver
             , margin (Css.em 0.3)
             , padding (Css.em 0.3)
+            ]
+        , mediaQuery "screen and (max-width : 48em)"
+            [ class Hero
+                [ height (vh 60)
+                , minHeight (px 240)
+                , padding2 (pct 15) zero
+                ]
             ]
         ]

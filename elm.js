@@ -12521,6 +12521,7 @@ var _meilab$meilab$ContentUtils$findByRoute = F2(
 var _meilab$meilab$ContentUtils$allContent = A2(_elm_lang$core$Basics_ops['++'], _meilab$meilab$Pages$pages, _meilab$meilab$Posts$posts);
 
 var _meilab$meilab$Messages$NoOp = {ctor: 'NoOp'};
+var _meilab$meilab$Messages$ToggleSideMenu = {ctor: 'ToggleSideMenu'};
 var _meilab$meilab$Messages$FetchedContent = function (a) {
 	return {ctor: 'FetchedContent', _0: a};
 };
@@ -12567,16 +12568,25 @@ var _meilab$meilab$FetchContent$fetch = F2(
 						A2(_meilab$meilab$FetchContent$locForContent, content, base_url)))));
 	});
 
-var _meilab$meilab$Models$initialModel = F2(
-	function (route, url) {
-		return {route: route, url: url, currentContent: _meilab$meilab$Pages$home, searchPost: _elm_lang$core$Maybe$Nothing};
-	});
 var _meilab$meilab$Models$Url = function (a) {
 	return {base_url: a};
 };
-var _meilab$meilab$Models$Model = F4(
-	function (a, b, c, d) {
-		return {route: a, url: b, currentContent: c, searchPost: d};
+var _meilab$meilab$Models$Ui = function (a) {
+	return {sideMenuActive: a};
+};
+var _meilab$meilab$Models$initialModel = F2(
+	function (route, url) {
+		return {
+			route: route,
+			url: url,
+			ui: _meilab$meilab$Models$Ui(true),
+			currentContent: _meilab$meilab$Pages$home,
+			searchPost: _elm_lang$core$Maybe$Nothing
+		};
+	});
+var _meilab$meilab$Models$Model = F5(
+	function (a, b, c, d, e) {
+		return {route: a, url: b, ui: c, currentContent: d, searchPost: e};
 	});
 
 var _rtfeldman$elm_css_util$Css_Helpers$toCssIdentifier = function (identifier) {
@@ -12738,15 +12748,23 @@ var _meilab$meilab$Styles_SharedStyles$MarkdownContent = {ctor: 'MarkdownContent
 var _meilab$meilab$Styles_SharedStyles$MarkdownWrapper = {ctor: 'MarkdownWrapper'};
 var _meilab$meilab$Styles_SharedStyles$ContentMeta = {ctor: 'ContentMeta'};
 var _meilab$meilab$Styles_SharedStyles$ImgResponsive = {ctor: 'ImgResponsive'};
+var _meilab$meilab$Styles_SharedStyles$MenuToggler = {ctor: 'MenuToggler'};
+var _meilab$meilab$Styles_SharedStyles$MenuInActive = {ctor: 'MenuInActive'};
+var _meilab$meilab$Styles_SharedStyles$MenuActive = {ctor: 'MenuActive'};
 var _meilab$meilab$Styles_SharedStyles$MenuSelected = {ctor: 'MenuSelected'};
 var _meilab$meilab$Styles_SharedStyles$MenuLink = {ctor: 'MenuLink'};
 var _meilab$meilab$Styles_SharedStyles$MenuItem = {ctor: 'MenuItem'};
 var _meilab$meilab$Styles_SharedStyles$HeaderMenuList = {ctor: 'HeaderMenuList'};
+var _meilab$meilab$Styles_SharedStyles$MenuListVertical = {ctor: 'MenuListVertical'};
 var _meilab$meilab$Styles_SharedStyles$MenuList = {ctor: 'MenuList'};
+var _meilab$meilab$Styles_SharedStyles$MenuContainerVertical = {ctor: 'MenuContainerVertical'};
 var _meilab$meilab$Styles_SharedStyles$MenuContainer = {ctor: 'MenuContainer'};
-var _meilab$meilab$Styles_SharedStyles$ContentContainer = {ctor: 'ContentContainer'};
+var _meilab$meilab$Styles_SharedStyles$SideBarMenu = {ctor: 'SideBarMenu'};
+var _meilab$meilab$Styles_SharedStyles$SideBarWrapper = {ctor: 'SideBarWrapper'};
 var _meilab$meilab$Styles_SharedStyles$Hero = {ctor: 'Hero'};
 var _meilab$meilab$Styles_SharedStyles$Body = {ctor: 'Body'};
+var _meilab$meilab$Styles_SharedStyles$ContentContainer = {ctor: 'ContentContainer'};
+var _meilab$meilab$Styles_SharedStyles$Container = {ctor: 'Container'};
 var _meilab$meilab$Styles_SharedStyles$Layout = {ctor: 'Layout'};
 
 var _meilab$meilab$ViewHelpers$formatDate = _justinmimbs$elm_date_extra$Date_Extra$toFormattedString('MMMM ddd, y');
@@ -12761,6 +12779,33 @@ var _meilab$meilab$ViewHelpers$_p0 = _rtfeldman$elm_css_helpers$Html_CssHelpers$
 var _meilab$meilab$ViewHelpers$id = _meilab$meilab$ViewHelpers$_p0.id;
 var _meilab$meilab$ViewHelpers$class = _meilab$meilab$ViewHelpers$_p0.$class;
 var _meilab$meilab$ViewHelpers$classList = _meilab$meilab$ViewHelpers$_p0.classList;
+var _meilab$meilab$ViewHelpers$toggleMenu = function (sideMenuClass) {
+	return A2(
+		_elm_lang$html$Html$span,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Events$onClick(_meilab$meilab$Messages$ToggleSideMenu),
+			_1: {
+				ctor: '::',
+				_0: _meilab$meilab$ViewHelpers$class(
+					{
+						ctor: '::',
+						_0: _meilab$meilab$Styles_SharedStyles$MenuToggler,
+						_1: {
+							ctor: '::',
+							_0: sideMenuClass,
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('menu'),
+			_1: {ctor: '[]'}
+		});
+};
 var _meilab$meilab$ViewHelpers$linkItem = F6(
 	function (liClass, onClickCmd, aClass, iconClass, slug, textToShow) {
 		return A2(
@@ -12791,8 +12836,12 @@ var _meilab$meilab$ViewHelpers$linkItem = F6(
 							_0: _meilab$meilab$ViewHelpers$navigationOnClick(onClickCmd),
 							_1: {
 								ctor: '::',
-								_0: aClass,
-								_1: {ctor: '[]'}
+								_0: _meilab$meilab$ViewHelpers$navigationOnClick(_meilab$meilab$Messages$ToggleSideMenu),
+								_1: {
+									ctor: '::',
+									_0: aClass,
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					},
@@ -12855,24 +12904,6 @@ var _meilab$meilab$ViewHelpers$navItem = F2(
 			_p2._3,
 			_p2._0);
 	});
-var _meilab$meilab$ViewHelpers$navigation = function (model) {
-	return A2(
-		_elm_lang$html$Html$ul,
-		{
-			ctor: '::',
-			_0: _meilab$meilab$ViewHelpers$class(
-				{
-					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$MenuList,
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		},
-		A2(
-			_elm_lang$core$List$map,
-			_meilab$meilab$ViewHelpers$navItem(model),
-			_meilab$meilab$Routing$routingItem(model.url.base_url)));
-};
 var _meilab$meilab$ViewHelpers$normalLinkItem = F3(
 	function (base_url, slug, textToShow) {
 		return A6(
@@ -12887,51 +12918,79 @@ var _meilab$meilab$ViewHelpers$normalLinkItem = F3(
 			slug,
 			textToShow);
 	});
-var _meilab$meilab$ViewHelpers$navHeading = function (model) {
-	return A2(
-		_elm_lang$html$Html$ul,
-		{
-			ctor: '::',
-			_0: _meilab$meilab$ViewHelpers$class(
-				{
-					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$MenuList,
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A3(_meilab$meilab$ViewHelpers$normalLinkItem, model.url.base_url, '/', 'Meilab'),
-			_1: {ctor: '[]'}
-		});
-};
-var _meilab$meilab$ViewHelpers$navContainer = function (model) {
-	return A2(
-		_elm_lang$html$Html$nav,
-		{
-			ctor: '::',
-			_0: _meilab$meilab$ViewHelpers$class(
-				{
-					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$MenuContainer,
-					_1: {
-						ctor: '::',
-						_0: _meilab$meilab$Styles_SharedStyles$Header,
-						_1: {ctor: '[]'}
-					}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _meilab$meilab$ViewHelpers$navHeading(model),
-			_1: {
+var _meilab$meilab$ViewHelpers$navigation = F3(
+	function (model, navClass, menuClass) {
+		return A2(
+			_elm_lang$html$Html$nav,
+			{
 				ctor: '::',
-				_0: _meilab$meilab$ViewHelpers$navigation(model),
+				_0: navClass,
 				_1: {ctor: '[]'}
-			}
-		});
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$ul,
+					{
+						ctor: '::',
+						_0: menuClass,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A3(_meilab$meilab$ViewHelpers$normalLinkItem, model.url.base_url, '/', 'Meilab'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$ul,
+						{
+							ctor: '::',
+							_0: menuClass,
+							_1: {ctor: '[]'}
+						},
+						A2(
+							_elm_lang$core$List$map,
+							_meilab$meilab$ViewHelpers$navItem(model),
+							_meilab$meilab$Routing$routingItem(model.url.base_url))),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _meilab$meilab$ViewHelpers$horizontalNav = function (model) {
+	return A3(
+		_meilab$meilab$ViewHelpers$navigation,
+		model,
+		_meilab$meilab$ViewHelpers$class(
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Styles_SharedStyles$MenuContainer,
+				_1: {ctor: '[]'}
+			}),
+		_meilab$meilab$ViewHelpers$class(
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Styles_SharedStyles$MenuList,
+				_1: {ctor: '[]'}
+			}));
+};
+var _meilab$meilab$ViewHelpers$verticalNav = function (model) {
+	return A3(
+		_meilab$meilab$ViewHelpers$navigation,
+		model,
+		_meilab$meilab$ViewHelpers$class(
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Styles_SharedStyles$SideBarMenu,
+				_1: {ctor: '[]'}
+			}),
+		_meilab$meilab$ViewHelpers$class(
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Styles_SharedStyles$MenuListVertical,
+				_1: {ctor: '[]'}
+			}));
 };
 var _meilab$meilab$ViewHelpers$externalLink = F2(
 	function (url, textToShow) {
@@ -13599,6 +13658,16 @@ var _meilab$meilab$Views$footer = A2(
 		_1: {ctor: '[]'}
 	});
 var _meilab$meilab$Views$view = function (model) {
+	var _p4 = function () {
+		var _p5 = model.ui.sideMenuActive;
+		if (_p5 === true) {
+			return {ctor: '_Tuple2', _0: _meilab$meilab$Styles_SharedStyles$MenuActive, _1: _meilab$meilab$Messages$ToggleSideMenu};
+		} else {
+			return {ctor: '_Tuple2', _0: _meilab$meilab$Styles_SharedStyles$MenuInActive, _1: _meilab$meilab$Messages$NoOp};
+		}
+	}();
+	var sideMenuClass = _p4._0;
+	var contentOnClickCmd = _p4._1;
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -13606,25 +13675,69 @@ var _meilab$meilab$Views$view = function (model) {
 			_0: _meilab$meilab$Views$class(
 				{
 					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$Layout,
+					_0: _meilab$meilab$Styles_SharedStyles$Container,
 					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _meilab$meilab$ViewHelpers$navContainer(model),
+			_0: _meilab$meilab$ViewHelpers$toggleMenu(sideMenuClass),
 			_1: {
 				ctor: '::',
-				_0: _meilab$meilab$Views$hero,
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _meilab$meilab$Views$class(
+							{
+								ctor: '::',
+								_0: _meilab$meilab$Styles_SharedStyles$SideBarWrapper,
+								_1: {
+									ctor: '::',
+									_0: sideMenuClass,
+									_1: {ctor: '[]'}
+								}
+							}),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _meilab$meilab$ViewHelpers$verticalNav(model),
+						_1: {ctor: '[]'}
+					}),
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views$body(model),
-					_1: {
-						ctor: '::',
-						_0: _meilab$meilab$Views$footer,
-						_1: {ctor: '[]'}
-					}
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _meilab$meilab$Views$class(
+								{
+									ctor: '::',
+									_0: _meilab$meilab$Styles_SharedStyles$ContentContainer,
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(contentOnClickCmd),
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _meilab$meilab$Views$hero,
+							_1: {
+								ctor: '::',
+								_0: _meilab$meilab$Views$body(model),
+								_1: {
+									ctor: '::',
+									_0: _meilab$meilab$Views$footer,
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
 				}
 			}
 		});
@@ -13697,6 +13810,16 @@ var _meilab$meilab$Update$update = F2(
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
 						{currentContent: newContent}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'ToggleSideMenu':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							ui: _meilab$meilab$Models$Ui(!model.ui.sideMenuActive)
+						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			default:

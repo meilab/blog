@@ -5,15 +5,23 @@ import Html.CssHelpers exposing (withNamespace)
 
 type CssClass
     = Layout
+    | Container
+    | ContentContainer
     | Body
     | Hero
-    | ContentContainer
+    | SideBarWrapper
+    | SideBarMenu
     | MenuContainer
+    | MenuContainerVertical
     | MenuList
+    | MenuListVertical
     | HeaderMenuList
     | MenuItem
     | MenuLink
     | MenuSelected
+    | MenuActive
+    | MenuInActive
+    | MenuToggler
     | ImgResponsive
     | ContentMeta
     | MarkdownWrapper

@@ -1,7 +1,7 @@
 module Views exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (href)
+import Html.Events exposing (onClick)
 import Markdown
 import Messages exposing (Msg(..))
 import Models exposing (..)
@@ -22,12 +22,26 @@ import Views.Authors exposing (renderAuthors)
 
 view : Model -> Html Msg
 view model =
-    div [ class [ Layout ] ]
-        [ navContainer model
-        , hero
-        , body model
-        , footer
-        ]
+    let
+        ( sideMenuClass, contentOnClickCmd ) =
+            case model.ui.sideMenuActive of
+                True ->
+                    ( MenuActive, ToggleSideMenu )
+
+                False ->
+                    ( MenuInActive, NoOp )
+    in
+        div [ class [ Container ] ]
+            [ toggleMenu sideMenuClass
+            , div [ class [ SideBarWrapper, sideMenuClass ] ]
+                [ verticalNav model
+                ]
+            , div [ class [ ContentContainer ], onClick contentOnClickCmd ]
+                [ hero
+                , body model
+                , footer
+                ]
+            ]
 
 
 hero : Html Msg

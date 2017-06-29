@@ -13,6 +13,16 @@ menuWidth =
     px 150
 
 
+toggleMenuLeft : Px
+toggleMenuLeft =
+    px (150 + 20)
+
+
+toggleMenuLeftCollapsed : Px
+toggleMenuLeftCollapsed =
+    px 20
+
+
 menuHeadingWidth : Px
 menuHeadingWidth =
     px 40
