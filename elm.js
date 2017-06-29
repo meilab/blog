@@ -12521,6 +12521,7 @@ var _meilab$meilab$ContentUtils$findByRoute = F2(
 var _meilab$meilab$ContentUtils$allContent = A2(_elm_lang$core$Basics_ops['++'], _meilab$meilab$Pages$pages, _meilab$meilab$Posts$posts);
 
 var _meilab$meilab$Messages$NoOp = {ctor: 'NoOp'};
+var _meilab$meilab$Messages$HideSideMenu = {ctor: 'HideSideMenu'};
 var _meilab$meilab$Messages$ToggleSideMenu = {ctor: 'ToggleSideMenu'};
 var _meilab$meilab$Messages$FetchedContent = function (a) {
 	return {ctor: 'FetchedContent', _0: a};
@@ -12567,6 +12568,13 @@ var _meilab$meilab$FetchContent$fetch = F2(
 					_elm_lang$http$Http$getString(
 						A2(_meilab$meilab$FetchContent$locForContent, content, base_url)))));
 	});
+
+var _meilab$meilab$Helpers$cmd = function (msg) {
+	return A2(
+		_elm_lang$core$Task$perform,
+		_elm_lang$core$Basics$always(msg),
+		_elm_lang$core$Task$succeed(msg));
+};
 
 var _meilab$meilab$Models$Url = function (a) {
 	return {base_url: a};
@@ -12836,12 +12844,8 @@ var _meilab$meilab$ViewHelpers$linkItem = F6(
 							_0: _meilab$meilab$ViewHelpers$navigationOnClick(onClickCmd),
 							_1: {
 								ctor: '::',
-								_0: _meilab$meilab$ViewHelpers$navigationOnClick(_meilab$meilab$Messages$ToggleSideMenu),
-								_1: {
-									ctor: '::',
-									_0: aClass,
-									_1: {ctor: '[]'}
-								}
+								_0: aClass,
+								_1: {ctor: '[]'}
 							}
 						}
 					},
@@ -13797,7 +13801,16 @@ var _meilab$meilab$Update$update = F2(
 					model,
 					{
 						ctor: '::',
-						_0: _elm_lang$navigation$Navigation$newUrl(_p2._0),
+						_0: _elm_lang$core$Platform_Cmd$batch(
+							{
+								ctor: '::',
+								_0: _elm_lang$navigation$Navigation$newUrl(_p2._0),
+								_1: {
+									ctor: '::',
+									_0: _meilab$meilab$Helpers$cmd(_meilab$meilab$Messages$HideSideMenu),
+									_1: {ctor: '[]'}
+								}
+							}),
 						_1: {ctor: '[]'}
 					});
 			case 'FetchedContent':
@@ -13819,6 +13832,16 @@ var _meilab$meilab$Update$update = F2(
 						model,
 						{
 							ui: _meilab$meilab$Models$Ui(!model.ui.sideMenuActive)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'HideSideMenu':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							ui: _meilab$meilab$Models$Ui(false)
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};

@@ -7,6 +7,7 @@ import Navigation exposing (Location)
 import RemoteData exposing (RemoteData)
 import ContentUtils
 import Types exposing (Content)
+import Helpers exposing (cmd)
 import FetchContent
 
 
@@ -67,7 +68,11 @@ update msg model =
 
         NewUrl url ->
             model
-                ! [ (Navigation.newUrl url) ]
+                ! [ Cmd.batch
+                        [ (Navigation.newUrl url)
+                        , cmd (HideSideMenu)
+                        ]
+                  ]
 
         FetchedContent response ->
             let
@@ -83,6 +88,11 @@ update msg model =
 
         ToggleSideMenu ->
             ( { model | ui = Ui (not model.ui.sideMenuActive) }
+            , Cmd.none
+            )
+
+        HideSideMenu ->
+            ( { model | ui = Ui False }
             , Cmd.none
             )
 

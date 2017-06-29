@@ -87,7 +87,6 @@ linkItem liClass onClickCmd aClass iconClass slug textToShow =
         [ a
             [ href slug
             , navigationOnClick (onClickCmd)
-            , navigationOnClick ToggleSideMenu
             , aClass
             ]
             [ i [ Html.Attributes.class iconClass ] []

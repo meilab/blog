@@ -9,4 +9,5 @@ type Msg
     | NewUrl String
     | FetchedContent (WebData String)
     | ToggleSideMenu
+    | HideSideMenu
     | NoOp
