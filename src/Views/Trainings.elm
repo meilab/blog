@@ -24,7 +24,7 @@ trainingView model =
         ]
         [ hero model.currentContent.hero (class [ PostHero ])
         , renderTrainings model
-        , Views.SharedViews.footer
+        , renderFooter
         ]
 
 

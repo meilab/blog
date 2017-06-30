@@ -25,5 +25,5 @@ aboutView model =
         [ hero model.currentContent.hero (class [ PostHero ])
         , renderMarkdown
             model.currentContent.markdown
-        , Views.SharedViews.footer
+        , renderFooter
         ]

@@ -24,7 +24,7 @@ authorView model =
         ]
         [ hero model.currentContent.hero (class [ PostHero ])
         , renderAuthors
-        , Views.SharedViews.footer
+        , renderFooter
         ]
 
 

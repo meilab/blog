@@ -12296,6 +12296,19 @@ var _krisajenkins$remotedata$RemoteData$update = F2(
 		}
 	});
 
+var _meilab$meilab$Routing$footerRoutingItem = {
+	ctor: '::',
+	_0: {ctor: '_Tuple3', _0: 'Github', _1: 'fa fa-github fa-stack-1x fa-inverse', _2: 'https://github.com/meilab'},
+	_1: {
+		ctor: '::',
+		_0: {ctor: '_Tuple3', _0: 'Wechat', _1: 'fa fa-weixin fa-stack-1x fa-inverse', _2: 'https://weixin.com'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple3', _0: 'Weibo', _1: 'fa fa-weibo fa-stack-1x fa-inverse', _2: 'http://weibo.com/meilab'},
+			_1: {ctor: '[]'}
+		}
+	}
+};
 var _meilab$meilab$Routing$urlFor = F2(
 	function (base_url, route) {
 		var _p0 = route;
@@ -13211,6 +13224,66 @@ var _meilab$meilab$ViewHelpers$externalLink = F2(
 				_1: {ctor: '[]'}
 			});
 	});
+var _meilab$meilab$ViewHelpers$footerLinkItem = function (_p6) {
+	var _p7 = _p6;
+	return A2(
+		_elm_lang$html$Html$li,
+		{
+			ctor: '::',
+			_0: _meilab$meilab$ViewHelpers$class(
+				{
+					ctor: '::',
+					_0: _meilab$meilab$Styles_SharedStyles$MenuItem,
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$a,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$href(_p7._2),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$span,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('fa-stack fa-lg'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$i,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('fa fa-circle fa-stack-2x'),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$i,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class(_p7._1),
+										_1: {ctor: '[]'}
+									},
+									{ctor: '[]'}),
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
 
 var _meilab$meilab$Trainings$elmBasics = {
 	slug: 'https://meilab.github.io/elm-basics',
@@ -17980,7 +18053,7 @@ var _meilab$meilab$Views_SharedViews$_p1 = _rtfeldman$elm_css_helpers$Html_CssHe
 var _meilab$meilab$Views_SharedViews$id = _meilab$meilab$Views_SharedViews$_p1.id;
 var _meilab$meilab$Views_SharedViews$class = _meilab$meilab$Views_SharedViews$_p1.$class;
 var _meilab$meilab$Views_SharedViews$classList = _meilab$meilab$Views_SharedViews$_p1.classList;
-var _meilab$meilab$Views_SharedViews$footer = A2(
+var _meilab$meilab$Views_SharedViews$renderFooter = A2(
 	_elm_lang$html$Html$footer,
 	{
 		ctor: '::',
@@ -17994,7 +18067,19 @@ var _meilab$meilab$Views_SharedViews$footer = A2(
 	},
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html$text('footer'),
+		_0: A2(
+			_elm_lang$html$Html$ul,
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Views_SharedViews$class(
+					{
+						ctor: '::',
+						_0: _meilab$meilab$Styles_SharedStyles$MenuList,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			A2(_elm_lang$core$List$map, _meilab$meilab$ViewHelpers$footerLinkItem, _meilab$meilab$Routing$footerRoutingItem)),
 		_1: {ctor: '[]'}
 	});
 var _meilab$meilab$Views_SharedViews$convertMarkdownToHtml = function (markdown) {
@@ -18392,7 +18477,7 @@ var _meilab$meilab$Views_Trainings$trainingView = function (model) {
 				_0: _meilab$meilab$Views_Trainings$renderTrainings(model),
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views_SharedViews$footer,
+					_0: _meilab$meilab$Views_SharedViews$renderFooter,
 					_1: {ctor: '[]'}
 				}
 			}
@@ -18463,7 +18548,7 @@ var _meilab$meilab$Views_Archives$archiveView = function (model) {
 				_0: _meilab$meilab$Views_Archives$renderArchives(model),
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views_SharedViews$footer,
+					_0: _meilab$meilab$Views_SharedViews$renderFooter,
 					_1: {ctor: '[]'}
 				}
 			}
@@ -18624,7 +18709,7 @@ var _meilab$meilab$Views_Authors$authorView = function (model) {
 				_0: _meilab$meilab$Views_Authors$renderAuthors,
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views_SharedViews$footer,
+					_0: _meilab$meilab$Views_SharedViews$renderFooter,
 					_1: {ctor: '[]'}
 				}
 			}
@@ -18693,7 +18778,7 @@ var _meilab$meilab$Views_Home$homeView = function (model) {
 				_0: _meilab$meilab$Views_Home$content(model),
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views_SharedViews$footer,
+					_0: _meilab$meilab$Views_SharedViews$renderFooter,
 					_1: {ctor: '[]'}
 				}
 			}
@@ -18737,7 +18822,7 @@ var _meilab$meilab$Views_About$aboutView = function (model) {
 				_0: _meilab$meilab$Views_SharedViews$renderMarkdown(model.currentContent.markdown),
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views_SharedViews$footer,
+					_0: _meilab$meilab$Views_SharedViews$renderFooter,
 					_1: {ctor: '[]'}
 				}
 			}
@@ -18806,7 +18891,7 @@ var _meilab$meilab$Views_Page$pageView = function (model) {
 				_0: _meilab$meilab$Views_Page$content(model),
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Views_SharedViews$footer,
+					_0: _meilab$meilab$Views_SharedViews$renderFooter,
 					_1: {ctor: '[]'}
 				}
 			}

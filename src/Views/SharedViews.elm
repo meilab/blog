@@ -1,14 +1,13 @@
 module Views.SharedViews exposing (..)
 
-import Models exposing (..)
-import Authors
 import Messages exposing (Msg(..))
 import Html exposing (..)
 import Html.Attributes
 import Html.CssHelpers exposing (withNamespace)
 import Css exposing (backgroundImage, url)
 import Types exposing (Content)
-import ViewHelpers exposing (formatDate, normalLinkItem)
+import ViewHelpers exposing (formatDate, normalLinkItem, footerLinkItem)
+import Routing exposing (footerRoutingItem)
 import Styles.SharedStyles exposing (..)
 import RemoteData exposing (WebData, RemoteData(..))
 import Markdown
@@ -22,10 +21,14 @@ styles =
     Css.asPairs >> Html.Attributes.style
 
 
-footer : Html Msg
-footer =
-    Html.footer [ class [ Footer ] ]
-        [ text "footer" ]
+renderFooter : Html Msg
+renderFooter =
+    footer [ class [ Footer ] ]
+        [ ul [ class [ MenuList ] ]
+            (footerRoutingItem
+                |> List.map footerLinkItem
+            )
+        ]
 
 
 renderMarkdown : WebData String -> Html Msg

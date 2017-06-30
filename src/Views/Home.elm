@@ -24,7 +24,7 @@ homeView model =
         ]
         [ hero model.currentContent.hero (class [ HomePageHero ])
         , content model
-        , Views.SharedViews.footer
+        , renderFooter
         ]
 
 

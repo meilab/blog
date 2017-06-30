@@ -23,7 +23,7 @@ archiveView model =
     div [ class [ ContentContainer ], onClick HideSideMenu ]
         [ hero model.currentContent.hero (class [ PostHero ])
         , renderArchives model
-        , Views.SharedViews.footer
+        , renderFooter
         ]
 
 

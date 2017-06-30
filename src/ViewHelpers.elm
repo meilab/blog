@@ -114,6 +114,19 @@ externalLink url textToShow =
         [ text textToShow ]
 
 
+footerLinkItem : ( String, String, String ) -> Html Msg
+footerLinkItem ( _, iconClass, slug ) =
+    li [ class [ MenuItem ] ]
+        [ a
+            [ href slug ]
+            [ span [ Html.Attributes.class "fa-stack fa-lg" ]
+                [ i [ Html.Attributes.class "fa fa-circle fa-stack-2x" ] []
+                , i [ Html.Attributes.class iconClass ] []
+                ]
+            ]
+        ]
+
+
 formatDate : Date -> String
 formatDate =
     Date.Extra.toFormattedString "MMMM ddd, y"

@@ -24,7 +24,7 @@ pageView model =
         ]
         [ hero model.currentContent.hero (class [ PostHero ])
         , content model
-        , Views.SharedViews.footer
+        , renderFooter
         ]
 
 
