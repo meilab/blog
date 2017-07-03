@@ -137,18 +137,13 @@ css =
                 ]
             , withClass MenuActive
                 [ left toggleMenuLeft ]
+            , hover
+                [ backgroundColor white
+                , color black
+                ]
             ]
         , class Spacing
             [ padding2 (px 50) zero ]
-        , class TagContainer
-            [ displayFlex
-            ]
-        , class TagItem
-            [ flex (int 1)
-            , border3 (px 1) solid silver
-            , margin (Css.em 0.3)
-            , padding (Css.em 0.3)
-            ]
         , mediaQuery "screen and (max-width : 48em)"
             [ class HomePageHero
                 [ height (vh 60)

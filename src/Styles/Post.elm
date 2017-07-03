@@ -13,11 +13,7 @@ import Styles.SharedVariables exposing (..)
 css : Stylesheet
 css =
     (stylesheet << namespace meilabNamespace.name)
-        [ class PostHero
-            [ width (pct 80)
-            , margin2 zero auto
-            ]
-        , class BlogPost
+        [ class BlogPost
             [ maxWidth (px 759)
             , marginLeft auto
             , marginRight auto

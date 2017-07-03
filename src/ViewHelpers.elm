@@ -29,7 +29,7 @@ navigationOnClick msg =
 toggleMenu : CssClass -> Html Msg
 toggleMenu sideMenuClass =
     --linkItem (class [ MenuToggler, sideMenuClass ]) NoOp (class []) "" "#menu" "menu"
-    span [ onClick ToggleSideMenu, class [ MenuToggler, sideMenuClass ] ] [ text "menu" ]
+    a [ onClick ToggleSideMenu, class [ MenuToggler, sideMenuClass ] ] [ text "menu" ]
 
 
 horizontalNav : Model -> Html Msg

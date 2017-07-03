@@ -2,7 +2,7 @@ module Views.SharedViews exposing (..)
 
 import Messages exposing (Msg(..))
 import Html exposing (..)
-import Html.Attributes
+import Html.Attributes exposing (src, seamless, width, height)
 import Html.CssHelpers exposing (withNamespace)
 import Css exposing (backgroundImage, url)
 import Types exposing (Content)
@@ -10,6 +10,7 @@ import ViewHelpers exposing (formatDate, normalLinkItem, footerLinkItem)
 import Routing exposing (footerRoutingItem)
 import Styles.SharedStyles exposing (..)
 import RemoteData exposing (WebData, RemoteData(..))
+import Config exposing (siteName, siteTime)
 import Markdown
 
 
@@ -28,6 +29,17 @@ renderFooter =
             (footerRoutingItem
                 |> List.map footerLinkItem
             )
+        , p [ class [ CopyRight ] ]
+            [ text "All code for this site is open source and written in Elm. "
+            , text "! — © 2017 Meilab"
+            , iframe
+                [ class [ GithubIframe ]
+                , width 100
+                , height 20
+                , src "https://ghbtns.com/github-btn.html?user=meilab&repo=elm_blog&type=star&count=true"
+                ]
+                []
+            ]
         ]
 
 

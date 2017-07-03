@@ -16,7 +16,6 @@ css =
         [ each [ class Footer, class Header ]
             [ backgroundColor background
             , color snow
-            , padding2 (px 10) zero
             ]
         , class Header
             [ backgroundColor snow
@@ -25,25 +24,28 @@ css =
             , justifyContent spaceBetween
             , alignItems center
             , overflow hidden
+            , padding2 (px 10) zero
             ]
         , class Footer
             [ backgroundColor (hex "#134374")
-            , color white
-            , clear
+            , backgroundColor snow
+            , color gray
             , padding2 (Css.em 3) (pct 10)
             , textAlign center
-            , flex3 (int 0) (int 0) (px 64)
+            , flex3 (int 0) (int 0) (px 120)
             , displayFlex
+            , flexDirection column
+            , justifyContent spaceAround
+            , alignItems center
+            ]
+        , class CopyRight
+            [ flex (int 1)
+            , displayFlex
+            , flexDirection column
             , justifyContent center
             , alignItems center
-            , descendants
-                [ a
-                    [ color (rgba 255 255 255 0.5)
-                    , hover
-                        [ color (rgba 255 255 255 0.3) ]
-                    , focus
-                        [ color (rgba 255 255 255 0.3) ]
-                    ]
-                ]
+            , textAlign center
             ]
+        , class GithubIframe
+            [ border zero ]
         ]

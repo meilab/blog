@@ -26,7 +26,7 @@ initialModel : Route -> Url -> Model
 initialModel route url =
     { route = route
     , url = url
-    , ui = Ui True
+    , ui = Ui False
     , currentContent = Pages.home
     , searchPost = Nothing
     }

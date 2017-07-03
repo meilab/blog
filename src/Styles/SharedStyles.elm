@@ -38,6 +38,8 @@ type CssClass
       -- Header and Footer
     | Header
     | Footer
+    | CopyRight
+    | GithubIframe
       -- For Post
     | PostHero
     | BlogPost

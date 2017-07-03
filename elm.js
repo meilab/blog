@@ -12301,10 +12301,10 @@ var _meilab$meilab$Routing$footerRoutingItem = {
 	_0: {ctor: '_Tuple3', _0: 'Github', _1: 'fa fa-github fa-stack-1x fa-inverse', _2: 'https://github.com/meilab'},
 	_1: {
 		ctor: '::',
-		_0: {ctor: '_Tuple3', _0: 'Wechat', _1: 'fa fa-weixin fa-stack-1x fa-inverse', _2: 'https://weixin.com'},
+		_0: {ctor: '_Tuple3', _0: 'Weibo', _1: 'fa fa-weibo fa-stack-1x fa-inverse', _2: 'http://weibo.com/meilab'},
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple3', _0: 'Weibo', _1: 'fa fa-weibo fa-stack-1x fa-inverse', _2: 'http://weibo.com/meilab'},
+			_0: {ctor: '_Tuple3', _0: 'Linkedin', _1: 'fa fa-linkedin fa-stack-1x fa-inverse', _2: 'https://linkedin.com/meilab'},
 			_1: {ctor: '[]'}
 		}
 	}
@@ -12527,6 +12527,9 @@ var _meilab$meilab$Authors$authors = {
 	_0: _meilab$meilab$Authors$wy,
 	_1: {ctor: '[]'}
 };
+
+var _meilab$meilab$Config$siteTime = '2017';
+var _meilab$meilab$Config$siteName = 'Meilab';
 
 var _meilab$meilab$Pages$notFound404 = {
 	slug: '404',
@@ -12791,7 +12794,7 @@ var _meilab$meilab$Models$initialModel = F2(
 		return {
 			route: route,
 			url: url,
-			ui: _meilab$meilab$Models$Ui(true),
+			ui: _meilab$meilab$Models$Ui(false),
 			currentContent: _meilab$meilab$Pages$home,
 			searchPost: _elm_lang$core$Maybe$Nothing
 		};
@@ -12945,6 +12948,8 @@ var _rtfeldman$elm_css_helpers$Html_CssHelpers$Namespace = F4(
 var _meilab$meilab$Styles_SharedStyles$meilabNamespace = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('meilab');
 var _meilab$meilab$Styles_SharedStyles$BlogPost = {ctor: 'BlogPost'};
 var _meilab$meilab$Styles_SharedStyles$PostHero = {ctor: 'PostHero'};
+var _meilab$meilab$Styles_SharedStyles$GithubIframe = {ctor: 'GithubIframe'};
+var _meilab$meilab$Styles_SharedStyles$CopyRight = {ctor: 'CopyRight'};
 var _meilab$meilab$Styles_SharedStyles$Footer = {ctor: 'Footer'};
 var _meilab$meilab$Styles_SharedStyles$Header = {ctor: 'Header'};
 var _meilab$meilab$Styles_SharedStyles$TagItem = {ctor: 'TagItem'};
@@ -12993,7 +12998,7 @@ var _meilab$meilab$ViewHelpers$class = _meilab$meilab$ViewHelpers$_p0.$class;
 var _meilab$meilab$ViewHelpers$classList = _meilab$meilab$ViewHelpers$_p0.classList;
 var _meilab$meilab$ViewHelpers$toggleMenu = function (sideMenuClass) {
 	return A2(
-		_elm_lang$html$Html$span,
+		_elm_lang$html$Html$a,
 		{
 			ctor: '::',
 			_0: _elm_lang$html$Html_Events$onClick(_meilab$meilab$Messages$ToggleSideMenu),
@@ -18080,7 +18085,59 @@ var _meilab$meilab$Views_SharedViews$renderFooter = A2(
 				_1: {ctor: '[]'}
 			},
 			A2(_elm_lang$core$List$map, _meilab$meilab$ViewHelpers$footerLinkItem, _meilab$meilab$Routing$footerRoutingItem)),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{
+					ctor: '::',
+					_0: _meilab$meilab$Views_SharedViews$class(
+						{
+							ctor: '::',
+							_0: _meilab$meilab$Styles_SharedStyles$CopyRight,
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('All code for this site is open source and written in Elm. '),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('! — © 2017 Meilab'),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$iframe,
+								{
+									ctor: '::',
+									_0: _meilab$meilab$Views_SharedViews$class(
+										{
+											ctor: '::',
+											_0: _meilab$meilab$Styles_SharedStyles$GithubIframe,
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$width(100),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$height(20),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$src('https://ghbtns.com/github-btn.html?user=meilab&repo=elm_blog&type=star&count=true'),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		}
 	});
 var _meilab$meilab$Views_SharedViews$convertMarkdownToHtml = function (markdown) {
 	var _p2 = markdown;

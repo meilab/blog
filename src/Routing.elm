@@ -89,6 +89,8 @@ routingItem base_url =
 footerRoutingItem : List ( String, String, String )
 footerRoutingItem =
     [ ( "Github", "fa fa-github fa-stack-1x fa-inverse", "https://github.com/meilab" )
-    , ( "Wechat", "fa fa-weixin fa-stack-1x fa-inverse", "https://weixin.com" )
+
+    --, ( "Wechat", "fa fa-weixin fa-stack-1x fa-inverse", "https://weixin.com" )
     , ( "Weibo", "fa fa-weibo fa-stack-1x fa-inverse", "http://weibo.com/meilab" )
+    , ( "Linkedin", "fa fa-linkedin fa-stack-1x fa-inverse", "https://linkedin.com/meilab" )
     ]
