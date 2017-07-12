@@ -12645,11 +12645,95 @@ var _meilab$meilab$Pages$pages = {
 	}
 };
 
+var _meilab$meilab$Posts$spaElmPhotoGallery = {
+	slug: '/post/spa-elm-photo-gallery',
+	route: _meilab$meilab$Routing$PostDetailRoute('spa-elm-photo-gallery'),
+	title: 'SPA',
+	name: 'spa-elm-photo-gallery',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 13),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
+var _meilab$meilab$Posts$splitFileElmPhotoGallery = {
+	slug: '/post/split-file-elm-photo-gallery',
+	route: _meilab$meilab$Routing$PostDetailRoute('split-file-elm-photo-gallery'),
+	title: 'Split file',
+	name: 'split-file-elm-photo-gallery',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 12),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
+var _meilab$meilab$Posts$dynamicUrlElmPhotoGallery = {
+	slug: '/post/dynamic-url-elm-photo-gallery',
+	route: _meilab$meilab$Routing$PostDetailRoute('dynamic-url-elm-photo-gallery'),
+	title: 'Dynamic Url',
+	name: 'dynamic-url-elm-photo-gallery',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 12),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
+var _meilab$meilab$Posts$inverseDataFlowElmPhotoGallery = {
+	slug: '/post/inverse-data-flow-elm-photo-gallery',
+	route: _meilab$meilab$Routing$PostDetailRoute('inverse-data-flow-elm-photo-gallery'),
+	title: 'Inverse Data Flow',
+	name: 'inverse-data-flow-elm-photo-gallery',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 11),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
+var _meilab$meilab$Posts$dynamicVersionElmPhotoGallery = {
+	slug: '/post/dynamic-version-elm-photo-gallery',
+	route: _meilab$meilab$Routing$PostDetailRoute('dynamic-version-elm-photo-gallery'),
+	title: 'Dynamic Version',
+	name: 'dynamic-version-elm-photo-gallery',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jul, 11),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
+var _meilab$meilab$Posts$staticVersionElmPhotoGallery = {
+	slug: '/post/static-version-elm-photo-gallery',
+	route: _meilab$meilab$Routing$PostDetailRoute('static-version-elm-photo-gallery'),
+	title: 'Static Version',
+	name: 'static-version-elm-photo-gallery',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jul, 10),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
+var _meilab$meilab$Posts$elmArchitecture = {
+	slug: '/post/elm-architecture',
+	route: _meilab$meilab$Routing$PostDetailRoute('elm-architecture'),
+	title: 'Elm Architecture',
+	name: 'elm-architecture',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 13),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	intro: 'Hello World in Elm and Elxir',
+	hero: '/image/cover4.jpg'
+};
 var _meilab$meilab$Posts$helloWorld = {
-	slug: '/post/hello-world',
-	route: _meilab$meilab$Routing$PostDetailRoute('hello-world'),
+	slug: '/post/hello-world-elm',
+	route: _meilab$meilab$Routing$PostDetailRoute('hello-world-elm'),
 	title: 'Hello World',
-	name: 'hello-world',
+	name: 'hello-world-elm',
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
@@ -12660,7 +12744,35 @@ var _meilab$meilab$Posts$helloWorld = {
 var _meilab$meilab$Posts$posts = {
 	ctor: '::',
 	_0: _meilab$meilab$Posts$helloWorld,
-	_1: {ctor: '[]'}
+	_1: {
+		ctor: '::',
+		_0: _meilab$meilab$Posts$elmArchitecture,
+		_1: {
+			ctor: '::',
+			_0: _meilab$meilab$Posts$staticVersionElmPhotoGallery,
+			_1: {
+				ctor: '::',
+				_0: _meilab$meilab$Posts$dynamicVersionElmPhotoGallery,
+				_1: {
+					ctor: '::',
+					_0: _meilab$meilab$Posts$inverseDataFlowElmPhotoGallery,
+					_1: {
+						ctor: '::',
+						_0: _meilab$meilab$Posts$dynamicUrlElmPhotoGallery,
+						_1: {
+							ctor: '::',
+							_0: _meilab$meilab$Posts$splitFileElmPhotoGallery,
+							_1: {
+								ctor: '::',
+								_0: _meilab$meilab$Posts$spaElmPhotoGallery,
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 };
 
 var _meilab$meilab$ContentUtils$contentByDateComparison = F2(
