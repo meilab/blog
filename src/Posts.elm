@@ -19,7 +19,7 @@ helloWorld =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -34,7 +34,7 @@ elmArchitecture =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -49,7 +49,7 @@ staticVersionElmPhotoGallery =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -64,7 +64,7 @@ dynamicVersionElmPhotoGallery =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -79,7 +79,7 @@ inverseDataFlowElmPhotoGallery =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -94,7 +94,7 @@ dynamicUrlElmPhotoGallery =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -109,7 +109,7 @@ splitFileElmPhotoGallery =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
@@ -124,7 +124,7 @@ spaElmPhotoGallery =
     , markdown = RemoteData.NotAsked
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
-    , hero = "../image/cover4.jpg"
+    , hero = "image/cover4.jpg"
     }
 
 
