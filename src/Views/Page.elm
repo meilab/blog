@@ -30,8 +30,8 @@ pageView model =
 
 content : Model -> Html Msg
 content model =
-    div []
-        [ h1 [] [ text model.currentContent.title ]
+    div [ class [ PostContainer ] ]
+        [ h1 [ class [ PostHead ] ] [ text model.currentContent.title ]
         , renderPageMeta model.currentContent
         , renderMarkdown model.currentContent.markdown
         ]

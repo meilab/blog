@@ -43,6 +43,8 @@ type CssClass
       -- For Post
     | PostHero
     | BlogPost
+    | PostContainer
+    | PostHead
 
 
 meilabNamespace : Html.CssHelpers.Namespace String class id msg

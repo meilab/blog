@@ -17017,6 +17017,8 @@ var _rtfeldman$elm_css_helpers$Html_CssHelpers$Namespace = F4(
 	});
 
 var _meilab$meilab$Styles_SharedStyles$meilabNamespace = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('meilab');
+var _meilab$meilab$Styles_SharedStyles$PostHead = {ctor: 'PostHead'};
+var _meilab$meilab$Styles_SharedStyles$PostContainer = {ctor: 'PostContainer'};
 var _meilab$meilab$Styles_SharedStyles$BlogPost = {ctor: 'BlogPost'};
 var _meilab$meilab$Styles_SharedStyles$PostHero = {ctor: 'PostHero'};
 var _meilab$meilab$Styles_SharedStyles$GithubIframe = {ctor: 'GithubIframe'};
@@ -22957,15 +22959,37 @@ var _meilab$meilab$Views_About$aboutView = function (model) {
 		});
 };
 
+var _meilab$meilab$Views_Page$_p0 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('meilab');
+var _meilab$meilab$Views_Page$id = _meilab$meilab$Views_Page$_p0.id;
+var _meilab$meilab$Views_Page$class = _meilab$meilab$Views_Page$_p0.$class;
+var _meilab$meilab$Views_Page$classList = _meilab$meilab$Views_Page$_p0.classList;
 var _meilab$meilab$Views_Page$content = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _meilab$meilab$Views_Page$class(
+				{
+					ctor: '::',
+					_0: _meilab$meilab$Styles_SharedStyles$PostContainer,
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A2(
 				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _meilab$meilab$Views_Page$class(
+						{
+							ctor: '::',
+							_0: _meilab$meilab$Styles_SharedStyles$PostHead,
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(model.currentContent.title),
@@ -22982,10 +23006,6 @@ var _meilab$meilab$Views_Page$content = function (model) {
 			}
 		});
 };
-var _meilab$meilab$Views_Page$_p0 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('meilab');
-var _meilab$meilab$Views_Page$id = _meilab$meilab$Views_Page$_p0.id;
-var _meilab$meilab$Views_Page$class = _meilab$meilab$Views_Page$_p0.$class;
-var _meilab$meilab$Views_Page$classList = _meilab$meilab$Views_Page$_p0.classList;
 var _meilab$meilab$Views_Page$pageView = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,

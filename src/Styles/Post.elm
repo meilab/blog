@@ -18,6 +18,12 @@ css =
             , marginLeft auto
             , marginRight auto
             ]
-        , mediaQuery "screen and (min-width : 48em)"
+        , class PostContainer
+            [ padding (Css.em 1.5) ]
+        , class PostHead
             []
+        , mediaQuery "screen and (min-width : 48em)"
+            [ class PostContainer
+                [ padding2 zero (pct 12) ]
+            ]
         ]
