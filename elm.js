@@ -12541,7 +12541,7 @@ var _meilab$meilab$Pages$notFound404 = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover3.jpg'
+	hero: '../image/cover3.jpg'
 };
 var _meilab$meilab$Pages$notFoundContent = {
 	slug: 'notfound',
@@ -12553,7 +12553,7 @@ var _meilab$meilab$Pages$notFoundContent = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover3.jpg'
+	hero: '../image/cover3.jpg'
 };
 var _meilab$meilab$Pages$authors = {
 	slug: 'author',
@@ -12565,7 +12565,7 @@ var _meilab$meilab$Pages$authors = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover7.jpg'
+	hero: '../image/cover7.jpg'
 };
 var _meilab$meilab$Pages$archives = {
 	slug: 'archive',
@@ -12577,7 +12577,7 @@ var _meilab$meilab$Pages$archives = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Pages$trainings = {
 	slug: '/trainings',
@@ -12589,7 +12589,7 @@ var _meilab$meilab$Pages$trainings = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover6.jpg'
+	hero: '../image/cover6.jpg'
 };
 var _meilab$meilab$Pages$about = {
 	slug: '/about',
@@ -12601,7 +12601,7 @@ var _meilab$meilab$Pages$about = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover5.jpg'
+	hero: '../image/cover5.jpg'
 };
 var _meilab$meilab$Pages$home = {
 	slug: '/',
@@ -12613,7 +12613,7 @@ var _meilab$meilab$Pages$home = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	intro: '',
-	hero: '/image/cover1.jpg'
+	hero: '../image/cover1.jpg'
 };
 var _meilab$meilab$Pages$pages = {
 	ctor: '::',
@@ -12655,7 +12655,7 @@ var _meilab$meilab$Posts$spaElmPhotoGallery = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$splitFileElmPhotoGallery = {
 	slug: '/post/split-file-elm-photo-gallery',
@@ -12667,7 +12667,7 @@ var _meilab$meilab$Posts$splitFileElmPhotoGallery = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$dynamicUrlElmPhotoGallery = {
 	slug: '/post/dynamic-url-elm-photo-gallery',
@@ -12679,7 +12679,7 @@ var _meilab$meilab$Posts$dynamicUrlElmPhotoGallery = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$inverseDataFlowElmPhotoGallery = {
 	slug: '/post/inverse-data-flow-elm-photo-gallery',
@@ -12691,7 +12691,7 @@ var _meilab$meilab$Posts$inverseDataFlowElmPhotoGallery = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$dynamicVersionElmPhotoGallery = {
 	slug: '/post/dynamic-version-elm-photo-gallery',
@@ -12703,7 +12703,7 @@ var _meilab$meilab$Posts$dynamicVersionElmPhotoGallery = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$staticVersionElmPhotoGallery = {
 	slug: '/post/static-version-elm-photo-gallery',
@@ -12715,7 +12715,7 @@ var _meilab$meilab$Posts$staticVersionElmPhotoGallery = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$elmArchitecture = {
 	slug: '/post/elm-architecture',
@@ -12727,7 +12727,7 @@ var _meilab$meilab$Posts$elmArchitecture = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$helloWorld = {
 	slug: '/post/hello-world-elm',
@@ -12739,7 +12739,7 @@ var _meilab$meilab$Posts$helloWorld = {
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
 	intro: 'Hello World in Elm and Elxir',
-	hero: '/image/cover4.jpg'
+	hero: '../image/cover4.jpg'
 };
 var _meilab$meilab$Posts$posts = {
 	ctor: '::',

@@ -19,7 +19,7 @@ home =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover1.jpg"
+    , hero = "../image/cover1.jpg"
     }
 
 
@@ -34,7 +34,7 @@ about =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover5.jpg"
+    , hero = "../image/cover5.jpg"
     }
 
 
@@ -49,7 +49,7 @@ trainings =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover6.jpg"
+    , hero = "../image/cover6.jpg"
     }
 
 
@@ -64,7 +64,7 @@ archives =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover4.jpg"
+    , hero = "../image/cover4.jpg"
     }
 
 
@@ -79,7 +79,7 @@ authors =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover7.jpg"
+    , hero = "../image/cover7.jpg"
     }
 
 
@@ -94,7 +94,7 @@ notFoundContent =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover3.jpg"
+    , hero = "../image/cover3.jpg"
     }
 
 
@@ -109,7 +109,7 @@ notFound404 =
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
     , intro = ""
-    , hero = "/image/cover3.jpg"
+    , hero = "../image/cover3.jpg"
     }
 
 
