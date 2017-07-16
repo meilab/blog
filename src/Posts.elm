@@ -10,7 +10,7 @@ import Routing exposing (Route(..))
 
 helloWorld : Content
 helloWorld =
-    { slug = "/post/hello-world-elm"
+    { slug = "/hello-world-elm"
     , route = PostDetailRoute "hello-world-elm"
     , title = "Hello World"
     , name = "hello-world-elm"
@@ -26,7 +26,7 @@ helloWorld =
 
 elmArchitecture : Content
 elmArchitecture =
-    { slug = "/post/elm-architecture"
+    { slug = "/elm-architecture"
     , route = PostDetailRoute "elm-architecture"
     , title = "Elm Architecture"
     , name = "elm-architecture"
@@ -42,7 +42,7 @@ elmArchitecture =
 
 staticVersionElmPhotoGallery : Content
 staticVersionElmPhotoGallery =
-    { slug = "/post/static-version-elm-photo-gallery"
+    { slug = "/static-version-elm-photo-gallery"
     , route = PostDetailRoute "static-version-elm-photo-gallery"
     , title = "Static Version"
     , name = "static-version-elm-photo-gallery"
@@ -58,7 +58,7 @@ staticVersionElmPhotoGallery =
 
 dynamicVersionElmPhotoGallery : Content
 dynamicVersionElmPhotoGallery =
-    { slug = "/post/dynamic-version-elm-photo-gallery"
+    { slug = "/dynamic-version-elm-photo-gallery"
     , route = PostDetailRoute "dynamic-version-elm-photo-gallery"
     , title = "Dynamic Version"
     , name = "dynamic-version-elm-photo-gallery"
@@ -74,7 +74,7 @@ dynamicVersionElmPhotoGallery =
 
 inverseDataFlowElmPhotoGallery : Content
 inverseDataFlowElmPhotoGallery =
-    { slug = "/post/inverse-data-flow-elm-photo-gallery"
+    { slug = "/inverse-data-flow-elm-photo-gallery"
     , route = PostDetailRoute "inverse-data-flow-elm-photo-gallery"
     , title = "Inverse Data Flow"
     , name = "inverse-data-flow-elm-photo-gallery"
@@ -90,7 +90,7 @@ inverseDataFlowElmPhotoGallery =
 
 dynamicUrlElmPhotoGallery : Content
 dynamicUrlElmPhotoGallery =
-    { slug = "/post/dynamic-url-elm-photo-gallery"
+    { slug = "/dynamic-url-elm-photo-gallery"
     , route = PostDetailRoute "dynamic-url-elm-photo-gallery"
     , title = "Dynamic Url"
     , name = "dynamic-url-elm-photo-gallery"
@@ -106,7 +106,7 @@ dynamicUrlElmPhotoGallery =
 
 splitFileElmPhotoGallery : Content
 splitFileElmPhotoGallery =
-    { slug = "/post/split-file-elm-photo-gallery"
+    { slug = "/split-file-elm-photo-gallery"
     , route = PostDetailRoute "split-file-elm-photo-gallery"
     , title = "Split file"
     , name = "split-file-elm-photo-gallery"
@@ -122,7 +122,7 @@ splitFileElmPhotoGallery =
 
 spaElmPhotoGallery : Content
 spaElmPhotoGallery =
-    { slug = "/post/spa-elm-photo-gallery"
+    { slug = "/spa-elm-photo-gallery"
     , route = PostDetailRoute "spa-elm-photo-gallery"
     , title = "SPA"
     , name = "spa-elm-photo-gallery"
@@ -138,7 +138,7 @@ spaElmPhotoGallery =
 
 whyIChooseElm : Content
 whyIChooseElm =
-    { slug = "/post/why-I-choose-elm"
+    { slug = "/why-I-choose-elm"
     , route = PostDetailRoute "why-I-choose-elm"
     , title = "我为什么选择Elm"
     , name = "why-I-choose-elm"
@@ -154,7 +154,7 @@ whyIChooseElm =
 
 elmTrainingGettingStarted : Content
 elmTrainingGettingStarted =
-    { slug = "/post/elm-training-getting-started"
+    { slug = "/elm-training-getting-started"
     , route = PostDetailRoute "elm-training-getting-started"
     , title = "Elm培训"
     , name = "elm-training-getting-started"

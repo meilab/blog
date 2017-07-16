@@ -37,7 +37,7 @@ matchers base_url =
         , map ArchiveRoute (parseBaseUrl base_url (s "archive"))
         , map TrainingRoute (parseBaseUrl base_url (s "training"))
         , map AuthorRoute (parseBaseUrl base_url (s "author"))
-        , map PostDetailRoute (parseBaseUrl base_url (s "post") </> string)
+        , map PostDetailRoute (parseBaseUrl base_url top </> string)
         ]
 
 
@@ -70,7 +70,7 @@ urlFor base_url route =
             base_url ++ "/author"
 
         PostDetailRoute slug ->
-            base_url ++ "/post" ++ slug
+            base_url ++ slug
 
         NotFoundRoute ->
             base_url
