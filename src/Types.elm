@@ -22,6 +22,16 @@ type ContentType
     | Post
 
 
+type TagType
+    = Elm
+    | Elixir
+    | IoT
+    | C
+    | ElmTraining
+    | ElmInAction
+    | PhotoGallery
+
+
 type alias Content =
     { title : String
     , name : String
@@ -33,6 +43,7 @@ type alias Content =
     , contentType : ContentType
     , intro : String
     , hero : String
+    , tags : List TagType
     }
 
 

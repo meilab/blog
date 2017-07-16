@@ -20,6 +20,7 @@ home =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover1.jpg"
+    , tags = []
     }
 
 
@@ -35,6 +36,7 @@ about =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover5.jpg"
+    , tags = []
     }
 
 
@@ -50,6 +52,7 @@ trainings =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover6.jpg"
+    , tags = []
     }
 
 
@@ -65,6 +68,7 @@ archives =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover4.jpg"
+    , tags = []
     }
 
 
@@ -80,6 +84,7 @@ authors =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover7.jpg"
+    , tags = []
     }
 
 
@@ -95,6 +100,7 @@ notFoundContent =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover3.jpg"
+    , tags = []
     }
 
 
@@ -110,6 +116,7 @@ notFound404 =
     , markdown = RemoteData.NotAsked
     , intro = ""
     , hero = "image/cover3.jpg"
+    , tags = []
     }
 
 

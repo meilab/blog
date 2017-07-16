@@ -1,6 +1,6 @@
 module Posts exposing (..)
 
-import Types exposing (Content, ContentType(..))
+import Types exposing (Content, ContentType(..), TagType(..))
 import Authors
 import Date.Extra exposing (fromCalendarDate)
 import Date exposing (Month(..))
@@ -20,6 +20,7 @@ helloWorld =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -35,6 +36,7 @@ elmArchitecture =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -50,6 +52,7 @@ staticVersionElmPhotoGallery =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -65,6 +68,7 @@ dynamicVersionElmPhotoGallery =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -80,6 +84,7 @@ inverseDataFlowElmPhotoGallery =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -95,6 +100,7 @@ dynamicUrlElmPhotoGallery =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -110,6 +116,7 @@ splitFileElmPhotoGallery =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
     }
 
 
@@ -125,6 +132,39 @@ spaElmPhotoGallery =
     , contentType = Post
     , intro = "Hello World in Elm and Elxir"
     , hero = "image/cover4.jpg"
+    , tags = [ Elm, PhotoGallery, ElmInAction, ElmTraining ]
+    }
+
+
+whyIChooseElm : Content
+whyIChooseElm =
+    { slug = "/post/why-I-choose-elm"
+    , route = PostDetailRoute "why-I-choose-elm"
+    , title = "我为什么选择Elm"
+    , name = "why-I-choose-elm"
+    , publishedDate = fromCalendarDate 2017 Jun 16
+    , author = Authors.wy
+    , markdown = RemoteData.NotAsked
+    , contentType = Post
+    , intro = "Hello World in Elm and Elxir"
+    , hero = "image/cover4.jpg"
+    , tags = [ Elm, ElmTraining ]
+    }
+
+
+elmTrainingGettingStarted : Content
+elmTrainingGettingStarted =
+    { slug = "/post/elm-training-getting-started"
+    , route = PostDetailRoute "elm-training-getting-started"
+    , title = "Elm培训"
+    , name = "elm-training-getting-started"
+    , publishedDate = fromCalendarDate 2017 Jun 16
+    , author = Authors.wy
+    , markdown = RemoteData.NotAsked
+    , contentType = Post
+    , intro = "Hello World in Elm and Elxir"
+    , hero = "image/cover4.jpg"
+    , tags = [ Elm, ElmTraining ]
     }
 
 
@@ -138,4 +178,6 @@ posts =
     , dynamicUrlElmPhotoGallery
     , splitFileElmPhotoGallery
     , spaElmPhotoGallery
+    , whyIChooseElm
+    , elmTrainingGettingStarted
     ]
