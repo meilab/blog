@@ -20,6 +20,18 @@ css =
             ]
         , class PostContainer
             [ padding (Css.em 1.5) ]
+        , class PostPreviewContainer
+            [ displayFlex
+            , flexDirection column
+            ]
+        , class PostPreview
+            []
+        , class PostTitle
+            []
+        , class PostSubtitle
+            []
+        , class PostContentPreview
+            []
         , class PostHead
             []
         , mediaQuery "screen and (min-width : 48em)"

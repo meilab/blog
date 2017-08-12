@@ -1,0 +1,21 @@
+{
+  "name": "elm_blog",
+  "version": "1.0.0",
+  "description": "A Blog written in Elm and about Elm",
+  "main": "main.js",
+  "scripts": {
+    "compile": "elm-make src/Main.elm --output elm.js",
+    "watch": "elm-live src/Main.elm --output elm.js --pushstate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atom/electron-quick-start.git"
+  },
+  "keywords": [
+    "Elm",
+    "Blog"
+  ],
+  "author": "meilab",
+  "license": "MIT"
+}
+
