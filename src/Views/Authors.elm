@@ -18,19 +18,12 @@ import Views.SharedViews exposing (..)
 
 authorView : Model -> Html Msg
 authorView model =
-    div
-        [ class [ ContentContainer ]
-        , onClick HideSideMenu
-        ]
-        [ hero model.currentContent.hero (class [ PostHero ])
-        , renderAuthors
-        , renderFooter
-        ]
+    renderAuthors
 
 
 renderAuthors : Html Msg
 renderAuthors =
-    div []
+    div [ class [ ContentContainer ] ]
         [ h4 [] [ text "Authors" ]
         , div [ class [ AuthorContainer ] ]
             (Authors.authors

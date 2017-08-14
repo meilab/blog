@@ -18,14 +18,7 @@ import Views.SharedViews exposing (..)
 
 pageView : Model -> Html Msg
 pageView model =
-    div
-        [ class [ ContentContainer ]
-        , onClick HideSideMenu
-        ]
-        [ hero model.currentContent.hero (class [ PostHero ])
-        , content model
-        , renderFooter
-        ]
+    content model
 
 
 content : Model -> Html Msg

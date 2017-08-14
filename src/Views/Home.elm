@@ -1,13 +1,17 @@
 module Views.Home exposing (homeView)
 
 import Models exposing (..)
+import Routing exposing (Route(..), urlFor)
 import Authors
 import Messages exposing (Msg(..))
 import Html exposing (..)
 import Html.Events exposing (onClick)
+import Html.Attributes exposing (href)
 import Html.CssHelpers exposing (withNamespace)
+import Posts exposing (posts)
+import ContentUtils exposing (filterByTitle)
 import Types exposing (Author)
-import ViewHelpers exposing (formatDate, externalLink)
+import ViewHelpers exposing (formatDate, navigationOnClick, externalLink)
 import Styles.SharedStyles exposing (..)
 import Views.SharedViews exposing (..)
 
@@ -18,20 +22,48 @@ import Views.SharedViews exposing (..)
 
 homeView : Model -> Html Msg
 homeView model =
-    div
-        [ class [ ContentContainer ]
-        , onClick HideSideMenu
-        ]
-        [ hero model.currentContent.hero (class [ HomePageHero ])
-        , content model
-        , renderFooter
-        ]
+    content model
 
 
 content : Model -> Html Msg
 content model =
-    div []
+    div [ class [ ContentContainer ] ]
         [ h1 [] [ text model.currentContent.title ]
         , renderPageMeta model.currentContent
         , renderMarkdown model.currentContent.markdown
+        , renderPosts model
+        , morePostsLink model
+        , renderProjects
         ]
+
+
+renderPosts : Model -> Html Msg
+renderPosts model =
+    div [ class [ PostPreviewContainer ] ]
+        (filterByTitle posts model.searchPost
+            |> List.take 5
+            |> List.map (renderPostPreview model.url.base_url)
+        )
+
+
+morePostsLink : Model -> Html Msg
+morePostsLink model =
+    let
+        slug =
+            urlFor model.url.base_url ArchiveRoute
+    in
+        div [ class [ MorePostsLink ] ]
+            [ a
+                [ href slug
+                , navigationOnClick (NewUrl slug)
+                ]
+                [ text "View All Posts"
+                , i [ Html.Attributes.class "fa fa-arrow-right" ] []
+                ]
+            ]
+
+
+renderProjects : Html Msg
+renderProjects =
+    div []
+        []

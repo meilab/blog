@@ -20,11 +20,7 @@ import Views.SharedViews exposing (..)
 
 archiveView : Model -> Html Msg
 archiveView model =
-    div [ class [ ContentContainer ], onClick HideSideMenu ]
-        [ hero model.currentContent.hero (class [ PostHero ])
-        , renderArchives model
-        , renderFooter
-        ]
+    renderArchives model
 
 
 renderArchives : Model -> Html Msg

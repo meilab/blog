@@ -8,6 +8,4 @@ type Msg
     = OnLocationChange Location
     | NewUrl String
     | FetchedContent (WebData String)
-    | ToggleSideMenu
-    | HideSideMenu
     | NoOp

@@ -1,4 +1,4 @@
-module Views exposing (view)
+module Views exposing (..)
 
 import Html exposing (..)
 import Html.Events exposing (onClick)
@@ -11,12 +11,14 @@ import Styles.SharedStyles exposing (..)
 import Types exposing (..)
 import RemoteData exposing (WebData, RemoteData(..))
 import Routing exposing (Route(..))
+import Views.SharedViews exposing (renderFooter)
 import Views.Trainings exposing (trainingView)
 import Views.Archives exposing (archiveView)
 import Views.Authors exposing (authorView)
 import Views.Home exposing (homeView)
 import Views.About exposing (aboutView)
 import Views.Page exposing (pageView)
+import Views.SharedViews exposing (hero)
 
 
 { id, class, classList } =
@@ -45,19 +47,12 @@ view model =
 
                 _ ->
                     pageView model
-
-        sideMenuClass =
-            case model.ui.sideMenuActive of
-                True ->
-                    MenuActive
-
-                False ->
-                    MenuInActive
     in
-        div [ class [ Container ] ]
-            [ toggleMenu sideMenuClass
-            , div [ class [ SideBarWrapper, sideMenuClass ] ]
-                [ verticalNav model
-                ]
+        div [ class [ Layout ] ]
+            [ headerNav model
+            , hero
+                model.currentContent.hero
+                (class [ PostHero ])
             , contentView
+            , renderFooter
             ]

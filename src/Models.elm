@@ -16,7 +16,6 @@ type alias Ui =
 type alias Model =
     { route : Route
     , url : Url
-    , ui : Ui
     , currentContent : Content
     , searchPost : Maybe String
     }
@@ -26,7 +25,6 @@ initialModel : Route -> Url -> Model
 initialModel route url =
     { route = route
     , url = url
-    , ui = Ui False
     , currentContent = Pages.home
     , searchPost = Nothing
     }

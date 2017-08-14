@@ -43,10 +43,13 @@ type CssClass
     | TagItem
       -- Header and Footer
     | Header
+    | HeaderNavWrapper
+    | HeaderNav
     | Footer
     | CopyRight
     | GithubIframe
       -- For Post
+    | MorePostsLink
     | PostHero
     | BlogPost
     | PostContainer

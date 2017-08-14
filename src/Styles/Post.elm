@@ -22,6 +22,7 @@ css =
             [ padding (Css.em 1.5) ]
         , class PostPreviewContainer
             [ displayFlex
+            , width (pct 100)
             , flexDirection column
             , justifyContent center
             , alignItems center
@@ -29,6 +30,8 @@ css =
             ]
         , class PostPreview
             [ displayFlex
+            , width (pct 100)
+            , borderBottom3 (px 1) solid silver
             , flexDirection column
             , alignItems flexStart
             , children
@@ -63,6 +66,28 @@ css =
             , fontSize (px 16)
             , fontStyle italic
             , marginTop zero
+            ]
+        , class MorePostsLink
+            [ margin2 (Css.em 3) zero
+            , displayFlex
+            , flexDirection column
+            , alignItems flexEnd
+            , textAlign right
+            , descendants
+                [ a
+                    [ color (hex "#404040")
+                    , textDecoration underline
+                    , border3 (px 1) solid silver
+                    , hover
+                        [ textDecoration none
+                        , color (hex "0085a1")
+                        ]
+                    , focus
+                        [ textDecoration none
+                        , color (hex "0085a1")
+                        ]
+                    ]
+                ]
             ]
         , class PostContentPreview
             [ fontSize (px 13)

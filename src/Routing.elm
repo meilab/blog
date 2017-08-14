@@ -78,11 +78,10 @@ urlFor base_url route =
 
 routingItem : String -> List ( String, String, Route, String )
 routingItem base_url =
-    [ ( "Home", "fa fa-apps", HomeRoute, base_url )
-    , ( "About", "fa fa-list", AboutRoute, base_url ++ "/about" )
-    , ( "Training", "fa fa-list", TrainingRoute, base_url ++ "/training" )
-    , ( "Archives", "fa fa-list", ArchiveRoute, base_url ++ "/archive" )
-    , ( "Authors", "fa fa-list", AuthorRoute, base_url ++ "/author" )
+    [ ( "Posts", "", ArchiveRoute, base_url ++ "/archive" )
+    , ( "Training", "", TrainingRoute, base_url ++ "/training" )
+    , ( "Portfolio", "", AboutRoute, base_url ++ "/about" )
+    , ( "Authors", "", AuthorRoute, base_url ++ "/author" )
     ]
 
 

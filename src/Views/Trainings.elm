@@ -18,19 +18,12 @@ import Views.SharedViews exposing (..)
 
 trainingView : Model -> Html Msg
 trainingView model =
-    div
-        [ class [ ContentContainer ]
-        , onClick HideSideMenu
-        ]
-        [ hero model.currentContent.hero (class [ PostHero ])
-        , renderTrainings model
-        , renderFooter
-        ]
+    renderTrainings model
 
 
 renderTrainings : Model -> Html Msg
 renderTrainings model =
-    div []
+    div [ class [ ContentContainer ] ]
         [ h4 [] [ text "Training Slides" ]
         , div [ class [ TrainingContainer ] ]
             (trainings

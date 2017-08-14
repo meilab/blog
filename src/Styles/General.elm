@@ -66,6 +66,8 @@ css =
             [ flex (int 1)
             , displayFlex
             , flexDirection column
+            , alignItems center
+            , maxWidth (px 759)
             ]
         , each [ class HomePageHero, class PostHero ]
             [ color snow
@@ -81,7 +83,7 @@ css =
             , textAlign center
             ]
         , class HomePageHero
-            [ height (vh 100)
+            [ height (vh 60)
             ]
         , class PostHero
             [ height (vh 60) ]
@@ -140,6 +142,26 @@ css =
             , hover
                 [ backgroundColor white
                 , color black
+                ]
+            ]
+        , class HeaderNavWrapper
+            [ position absolute
+            , width (pct 100)
+            , padding2 zero (px 10)
+            , top (px 10)
+            ]
+        , class HeaderNav
+            [ displayFlex
+            , justifyContent spaceBetween
+            , color white
+            , textTransform uppercase
+            , descendants
+                [ a
+                    [ color snow
+                    , hover
+                        [ color yellow
+                        ]
+                    ]
                 ]
             ]
         , class Spacing

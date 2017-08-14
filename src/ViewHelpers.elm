@@ -26,10 +26,10 @@ navigationOnClick msg =
         (JD.succeed msg)
 
 
-toggleMenu : CssClass -> Html Msg
-toggleMenu sideMenuClass =
-    --linkItem (class [ MenuToggler, sideMenuClass ]) NoOp (class []) "" "#menu" "menu"
-    a [ onClick ToggleSideMenu, class [ MenuToggler, sideMenuClass ] ] [ text "menu" ]
+headerNav : Model -> Html Msg
+headerNav model =
+    div [ class [ HeaderNavWrapper ] ]
+        [ navigation model (class [ HeaderNav ]) (class [ MenuList ]) ]
 
 
 horizontalNav : Model -> Html Msg

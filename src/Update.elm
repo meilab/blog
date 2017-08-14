@@ -68,10 +68,7 @@ update msg model =
 
         NewUrl url ->
             model
-                ! [ Cmd.batch
-                        [ (Navigation.newUrl url)
-                        , cmd (HideSideMenu)
-                        ]
+                ! [ Navigation.newUrl url
                   ]
 
         FetchedContent response ->
@@ -85,16 +82,6 @@ update msg model =
                 ( { model | currentContent = newContent }
                 , Cmd.none
                 )
-
-        ToggleSideMenu ->
-            ( { model | ui = Ui (not model.ui.sideMenuActive) }
-            , Cmd.none
-            )
-
-        HideSideMenu ->
-            ( { model | ui = Ui False }
-            , Cmd.none
-            )
 
         NoOp ->
             ( model, Cmd.none )

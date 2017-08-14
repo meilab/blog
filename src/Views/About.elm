@@ -20,10 +20,7 @@ aboutView : Model -> Html Msg
 aboutView model =
     div
         [ class [ ContentContainer ]
-        , onClick HideSideMenu
         ]
-        [ hero model.currentContent.hero (class [ PostHero ])
-        , renderMarkdown
+        [ renderMarkdown
             model.currentContent.markdown
-        , renderFooter
         ]
