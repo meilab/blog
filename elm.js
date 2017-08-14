@@ -12497,7 +12497,7 @@ var _meilab$meilab$Types$Content = function (a) {
 								return function (i) {
 									return function (j) {
 										return function (k) {
-											return {title: a, name: b, slug: c, route: d, publishedDate: e, author: f, markdown: g, contentType: h, intro: i, hero: j, tags: k};
+											return {title: a, name: b, slug: c, route: d, publishedDate: e, author: f, markdown: g, contentType: h, preview: i, hero: j, tags: k};
 										};
 									};
 								};
@@ -12543,7 +12543,7 @@ var _meilab$meilab$Pages$notFound404 = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover3.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12556,7 +12556,7 @@ var _meilab$meilab$Pages$notFoundContent = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover3.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12569,7 +12569,7 @@ var _meilab$meilab$Pages$authors = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 28),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover7.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12582,7 +12582,7 @@ var _meilab$meilab$Pages$archives = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover4.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12595,7 +12595,7 @@ var _meilab$meilab$Pages$trainings = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 27),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover6.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12608,7 +12608,7 @@ var _meilab$meilab$Pages$about = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover5.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12621,7 +12621,7 @@ var _meilab$meilab$Pages$home = {
 	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	intro: '',
+	preview: '',
 	hero: 'image/cover1.jpg',
 	tags: {ctor: '[]'}
 };
@@ -12655,48 +12655,6 @@ var _meilab$meilab$Pages$pages = {
 	}
 };
 
-var _meilab$meilab$Posts$elmTrainingGettingStarted = {
-	slug: '/elm-training-getting-started',
-	route: _meilab$meilab$Routing$PostDetailRoute('elm-training-getting-started'),
-	title: 'Elm培训',
-	name: 'elm-training-getting-started',
-	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 16),
-	author: _meilab$meilab$Authors$wy,
-	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
-	hero: 'image/cover4.jpg',
-	tags: {
-		ctor: '::',
-		_0: _meilab$meilab$Types$Elm,
-		_1: {
-			ctor: '::',
-			_0: _meilab$meilab$Types$ElmTraining,
-			_1: {ctor: '[]'}
-		}
-	}
-};
-var _meilab$meilab$Posts$whyIChooseElm = {
-	slug: '/why-I-choose-elm',
-	route: _meilab$meilab$Routing$PostDetailRoute('why-I-choose-elm'),
-	title: '我为什么选择Elm',
-	name: 'why-I-choose-elm',
-	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 16),
-	author: _meilab$meilab$Authors$wy,
-	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
-	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
-	hero: 'image/cover4.jpg',
-	tags: {
-		ctor: '::',
-		_0: _meilab$meilab$Types$Elm,
-		_1: {
-			ctor: '::',
-			_0: _meilab$meilab$Types$ElmTraining,
-			_1: {ctor: '[]'}
-		}
-	}
-};
 var _meilab$meilab$Posts$spaElmPhotoGallery = {
 	slug: '/spa-elm-photo-gallery',
 	route: _meilab$meilab$Routing$PostDetailRoute('spa-elm-photo-gallery'),
@@ -12706,7 +12664,7 @@ var _meilab$meilab$Posts$spaElmPhotoGallery = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12735,7 +12693,7 @@ var _meilab$meilab$Posts$splitFileElmPhotoGallery = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12764,7 +12722,7 @@ var _meilab$meilab$Posts$dynamicUrlElmPhotoGallery = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12793,7 +12751,7 @@ var _meilab$meilab$Posts$inverseDataFlowElmPhotoGallery = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12822,7 +12780,7 @@ var _meilab$meilab$Posts$dynamicVersionElmPhotoGallery = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12851,7 +12809,7 @@ var _meilab$meilab$Posts$staticVersionElmPhotoGallery = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12880,7 +12838,7 @@ var _meilab$meilab$Posts$elmArchitecture = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12909,7 +12867,7 @@ var _meilab$meilab$Posts$helloWorld = {
 	author: _meilab$meilab$Authors$wy,
 	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
 	contentType: _meilab$meilab$Types$Post,
-	intro: 'Hello World in Elm and Elxir',
+	preview: 'Hello World in Elm and Elxir',
 	hero: 'image/cover4.jpg',
 	tags: {
 		ctor: '::',
@@ -12929,44 +12887,87 @@ var _meilab$meilab$Posts$helloWorld = {
 		}
 	}
 };
-var _meilab$meilab$Posts$posts = {
-	ctor: '::',
-	_0: _meilab$meilab$Posts$helloWorld,
-	_1: {
+var _meilab$meilab$Posts$firstImpressionUsingElm = {
+	slug: '/first-impression-using-elm',
+	route: _meilab$meilab$Routing$PostDetailRoute('first-impression-using-elm'),
+	title: 'Elm初见：构建相册应用',
+	name: 'first-impression-using-elm',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 25),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	preview: 'Hello World in Elm and Elxir',
+	hero: 'image/cover4.jpg',
+	tags: {
 		ctor: '::',
-		_0: _meilab$meilab$Posts$elmArchitecture,
+		_0: _meilab$meilab$Types$Elm,
 		_1: {
 			ctor: '::',
-			_0: _meilab$meilab$Posts$staticVersionElmPhotoGallery,
+			_0: _meilab$meilab$Types$PhotoGallery,
 			_1: {
 				ctor: '::',
-				_0: _meilab$meilab$Posts$dynamicVersionElmPhotoGallery,
+				_0: _meilab$meilab$Types$ElmInAction,
 				_1: {
 					ctor: '::',
-					_0: _meilab$meilab$Posts$inverseDataFlowElmPhotoGallery,
-					_1: {
-						ctor: '::',
-						_0: _meilab$meilab$Posts$dynamicUrlElmPhotoGallery,
-						_1: {
-							ctor: '::',
-							_0: _meilab$meilab$Posts$splitFileElmPhotoGallery,
-							_1: {
-								ctor: '::',
-								_0: _meilab$meilab$Posts$spaElmPhotoGallery,
-								_1: {
-									ctor: '::',
-									_0: _meilab$meilab$Posts$whyIChooseElm,
-									_1: {
-										ctor: '::',
-										_0: _meilab$meilab$Posts$elmTrainingGettingStarted,
-										_1: {ctor: '[]'}
-									}
-								}
-							}
-						}
-					}
+					_0: _meilab$meilab$Types$ElmTraining,
+					_1: {ctor: '[]'}
 				}
 			}
+		}
+	}
+};
+var _meilab$meilab$Posts$elmTrainingGettingStarted = {
+	slug: '/elm-training-getting-started',
+	route: _meilab$meilab$Routing$PostDetailRoute('elm-training-getting-started'),
+	title: 'Elm培训',
+	name: 'elm-training-getting-started',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 16),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	preview: 'Hello World in Elm and Elxir',
+	hero: 'image/cover4.jpg',
+	tags: {
+		ctor: '::',
+		_0: _meilab$meilab$Types$Elm,
+		_1: {
+			ctor: '::',
+			_0: _meilab$meilab$Types$ElmTraining,
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _meilab$meilab$Posts$whyIChooseElm = {
+	slug: '/why-I-choose-elm',
+	route: _meilab$meilab$Routing$PostDetailRoute('why-I-choose-elm'),
+	title: '我为什么选择Elm',
+	name: 'why-I-choose-elm',
+	publishedDate: A3(_justinmimbs$elm_date_extra$Date_Extra$fromCalendarDate, 2017, _elm_lang$core$Date$Jun, 16),
+	author: _meilab$meilab$Authors$wy,
+	markdown: _krisajenkins$remotedata$RemoteData$NotAsked,
+	contentType: _meilab$meilab$Types$Post,
+	preview: 'Hello World in Elm and Elxir',
+	hero: 'image/cover4.jpg',
+	tags: {
+		ctor: '::',
+		_0: _meilab$meilab$Types$Elm,
+		_1: {
+			ctor: '::',
+			_0: _meilab$meilab$Types$ElmTraining,
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _meilab$meilab$Posts$posts = {
+	ctor: '::',
+	_0: _meilab$meilab$Posts$whyIChooseElm,
+	_1: {
+		ctor: '::',
+		_0: _meilab$meilab$Posts$elmTrainingGettingStarted,
+		_1: {
+			ctor: '::',
+			_0: _meilab$meilab$Posts$firstImpressionUsingElm,
+			_1: {ctor: '[]'}
 		}
 	}
 };
@@ -13292,8 +13293,9 @@ var _meilab$meilab$Styles_SharedStyles$HomePageHero = {ctor: 'HomePageHero'};
 var _meilab$meilab$Styles_SharedStyles$Body = {ctor: 'Body'};
 var _meilab$meilab$Styles_SharedStyles$ContentContainer = {ctor: 'ContentContainer'};
 var _meilab$meilab$Styles_SharedStyles$PostContentPreview = {ctor: 'PostContentPreview'};
-var _meilab$meilab$Styles_SharedStyles$PostSubtitle = {ctor: 'PostSubtitle'};
-var _meilab$meilab$Styles_SharedStyles$PostTitle = {ctor: 'PostTitle'};
+var _meilab$meilab$Styles_SharedStyles$PostPreviewSubtitle = {ctor: 'PostPreviewSubtitle'};
+var _meilab$meilab$Styles_SharedStyles$PostPreviewTitle = {ctor: 'PostPreviewTitle'};
+var _meilab$meilab$Styles_SharedStyles$PostPreviewMeta = {ctor: 'PostPreviewMeta'};
 var _meilab$meilab$Styles_SharedStyles$PostPreview = {ctor: 'PostPreview'};
 var _meilab$meilab$Styles_SharedStyles$PostPreviewContainer = {ctor: 'PostPreviewContainer'};
 var _meilab$meilab$Styles_SharedStyles$Container = {ctor: 'Container'};
@@ -18592,6 +18594,110 @@ var _meilab$meilab$Views_SharedViews$renderPostMeta = F2(
 				}
 			});
 	});
+var _meilab$meilab$Views_SharedViews$renderPostPreview = F2(
+	function (base_url, content) {
+		var slug = content.slug;
+		var onClickCmd = _meilab$meilab$Messages$NewUrl(
+			A2(_elm_lang$core$Basics_ops['++'], base_url, slug));
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Views_SharedViews$class(
+					{
+						ctor: '::',
+						_0: _meilab$meilab$Styles_SharedStyles$PostPreview,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$a,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$href(slug),
+						_1: {
+							ctor: '::',
+							_0: _meilab$meilab$ViewHelpers$navigationOnClick(onClickCmd),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$h2,
+							{
+								ctor: '::',
+								_0: _meilab$meilab$Views_SharedViews$class(
+									{
+										ctor: '::',
+										_0: _meilab$meilab$Styles_SharedStyles$PostPreviewTitle,
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(content.title),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$p,
+								{
+									ctor: '::',
+									_0: _meilab$meilab$Views_SharedViews$class(
+										{
+											ctor: '::',
+											_0: _meilab$meilab$Styles_SharedStyles$PostContentPreview,
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(content.preview),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$p,
+						{
+							ctor: '::',
+							_0: _meilab$meilab$Views_SharedViews$class(
+								{
+									ctor: '::',
+									_0: _meilab$meilab$Styles_SharedStyles$PostPreviewMeta,
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'Published on ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_meilab$meilab$ViewHelpers$formatDate(content.publishedDate),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											' by ',
+											A2(_elm_lang$core$Basics_ops['++'], content.author.name, '.'))))),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
 var _meilab$meilab$Views_SharedViews$hero = F2(
 	function (src, heroClass) {
 		return A2(
@@ -18873,37 +18979,10 @@ var _meilab$meilab$Views_Archives$renderArchives = function (model) {
 				}),
 			_1: {ctor: '[]'}
 		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h4,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('Posts of meilab'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$ul,
-					{
-						ctor: '::',
-						_0: _meilab$meilab$Views_Archives$class(
-							{
-								ctor: '::',
-								_0: _meilab$meilab$Styles_SharedStyles$PostPreview,
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					A2(
-						_elm_lang$core$List$map,
-						_meilab$meilab$Views_SharedViews$renderPostMeta(model.url.base_url),
-						A2(_meilab$meilab$ContentUtils$filterByTitle, _meilab$meilab$Posts$posts, model.searchPost))),
-				_1: {ctor: '[]'}
-			}
-		});
+		A2(
+			_elm_lang$core$List$map,
+			_meilab$meilab$Views_SharedViews$renderPostPreview(model.url.base_url),
+			A2(_meilab$meilab$ContentUtils$filterByTitle, _meilab$meilab$Posts$posts, model.searchPost)));
 };
 var _meilab$meilab$Views_Archives$archiveView = function (model) {
 	return A2(

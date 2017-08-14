@@ -8,8 +8,9 @@ type CssClass
     | Container
     | PostPreviewContainer
     | PostPreview
-    | PostTitle
-    | PostSubtitle
+    | PostPreviewMeta
+    | PostPreviewTitle
+    | PostPreviewSubtitle
     | PostContentPreview
     | ContentContainer
     | Body

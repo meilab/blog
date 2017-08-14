@@ -18,7 +18,7 @@ home =
     , publishedDate = fromCalendarDate 2017 Jun 25
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover1.jpg"
     , tags = []
     }
@@ -34,7 +34,7 @@ about =
     , publishedDate = fromCalendarDate 2017 Jun 25
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover5.jpg"
     , tags = []
     }
@@ -50,7 +50,7 @@ trainings =
     , publishedDate = fromCalendarDate 2017 Jun 27
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover6.jpg"
     , tags = []
     }
@@ -66,7 +66,7 @@ archives =
     , publishedDate = fromCalendarDate 2017 Jun 25
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover4.jpg"
     , tags = []
     }
@@ -82,7 +82,7 @@ authors =
     , publishedDate = fromCalendarDate 2017 Jun 28
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover7.jpg"
     , tags = []
     }
@@ -98,7 +98,7 @@ notFoundContent =
     , publishedDate = fromCalendarDate 2017 Jun 25
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover3.jpg"
     , tags = []
     }
@@ -114,7 +114,7 @@ notFound404 =
     , publishedDate = fromCalendarDate 2017 Jun 25
     , author = Authors.wy
     , markdown = RemoteData.NotAsked
-    , intro = ""
+    , preview = ""
     , hero = "image/cover3.jpg"
     , tags = []
     }

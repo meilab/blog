@@ -30,7 +30,4 @@ archiveView model =
 renderArchives : Model -> Html Msg
 renderArchives model =
     div [ class [ PostPreviewContainer ] ]
-        [ h4 [] [ text "Posts of meilab" ]
-        , ul [ class [ PostPreview ] ]
-            (List.map (renderPostMeta model.url.base_url) <| filterByTitle posts model.searchPost)
-        ]
+        (List.map (renderPostPreview model.url.base_url) <| filterByTitle posts model.searchPost)

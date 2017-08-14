@@ -41,7 +41,7 @@ type alias Content =
     , author : Author
     , markdown : WebData String
     , contentType : ContentType
-    , intro : String
+    , preview : String
     , hero : String
     , tags : List TagType
     }

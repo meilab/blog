@@ -23,15 +23,53 @@ css =
         , class PostPreviewContainer
             [ displayFlex
             , flexDirection column
+            , justifyContent center
+            , alignItems center
+            , maxWidth (px 759)
             ]
         , class PostPreview
-            []
-        , class PostTitle
-            []
-        , class PostSubtitle
-            []
+            [ displayFlex
+            , flexDirection column
+            , alignItems flexStart
+            , children
+                [ a
+                    [ color (hex "#404040")
+                    , hover
+                        [ textDecoration none
+                        , color (hex "0085a1")
+                        ]
+                    , focus
+                        [ textDecoration none
+                        , color (hex "0085a1")
+                        ]
+                    ]
+                ]
+            ]
+        , class PostPreviewTitle
+            [ fontSize (px 21)
+            , lineHeight (Css.em 1.3)
+            , marginTop (px 30)
+            , marginBottom (px 8)
+            ]
+        , class PostPreviewSubtitle
+            [ fontSize (px 15)
+            , lineHeight (Css.em 1.3)
+            , fontWeight (int 300)
+            , marginBottom (px 10)
+            ]
+        , class PostPreviewMeta
+            [ fontFamily sansSerif
+            , color (hex "#808080")
+            , fontSize (px 16)
+            , fontStyle italic
+            , marginTop zero
+            ]
         , class PostContentPreview
-            []
+            [ fontSize (px 13)
+            , fontStyle italic
+            , color (hex "#a3a3a3")
+            , hover [ color (hex "#0085a1") ]
+            ]
         , class PostHead
             []
         , mediaQuery "screen and (min-width : 48em)"

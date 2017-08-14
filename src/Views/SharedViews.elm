@@ -2,11 +2,11 @@ module Views.SharedViews exposing (..)
 
 import Messages exposing (Msg(..))
 import Html exposing (..)
-import Html.Attributes exposing (src, seamless, width, height)
+import Html.Attributes exposing (src, href, seamless, width, height)
 import Html.CssHelpers exposing (withNamespace)
 import Css exposing (backgroundImage, url)
 import Types exposing (Content)
-import ViewHelpers exposing (formatDate, normalLinkItem, footerLinkItem)
+import ViewHelpers exposing (formatDate, normalLinkItem, footerLinkItem, navigationOnClick)
 import Routing exposing (footerRoutingItem)
 import Styles.SharedStyles exposing (..)
 import RemoteData exposing (WebData, RemoteData(..))
@@ -88,6 +88,30 @@ renderPostMeta base_url content =
                 ("Published on " ++ formatDate content.publishedDate ++ " by " ++ content.author.name ++ ".")
             ]
         ]
+
+
+renderPostPreview : String -> Content -> Html Msg
+renderPostPreview base_url content =
+    let
+        slug =
+            content.slug
+
+        onClickCmd =
+            (NewUrl (base_url ++ slug))
+    in
+        div [ class [ PostPreview ] ]
+            [ a
+                [ href slug
+                , navigationOnClick (onClickCmd)
+                ]
+                [ h2 [ class [ PostPreviewTitle ] ] [ text content.title ]
+                , p [ class [ PostContentPreview ] ] [ text content.preview ]
+                ]
+            , p [ class [ PostPreviewMeta ] ]
+                [ text
+                    ("Published on " ++ formatDate content.publishedDate ++ " by " ++ content.author.name ++ ".")
+                ]
+            ]
 
 
 hero : String -> Attribute Msg -> Html Msg
