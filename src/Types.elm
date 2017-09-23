@@ -32,6 +32,10 @@ type TagType
     | PhotoGallery
 
 
+type alias Tags =
+    List TagType
+
+
 type alias Content =
     { title : String
     , name : String

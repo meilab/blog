@@ -2,10 +2,11 @@ module Views.SharedViews exposing (..)
 
 import Messages exposing (Msg(..))
 import Html exposing (..)
-import Html.Attributes exposing (src, href, seamless, width, height)
+import Html.Attributes exposing (src, href, seamless, width, height, placeholder)
+import Html.Events exposing (onClick, onInput)
 import Html.CssHelpers exposing (withNamespace)
 import Css exposing (backgroundImage, url)
-import Types exposing (Content)
+import Types exposing (Content, TagType, Tags)
 import ViewHelpers exposing (formatDate, normalLinkItem, footerLinkItem, navigationOnClick)
 import Routing exposing (footerRoutingItem)
 import Styles.SharedStyles exposing (..)
@@ -130,4 +131,34 @@ hero src heroClass =
             , h3 [ class [ TagItem ] ] [ text "IoT" ]
             , h3 [ class [ TagItem ] ] [ text "Blockchain" ]
             ]
+        , input
+            [ placeholder "Type to Search"
+            , class [ Searcher ]
+            , onInput UpdateTitleFilter
+            ]
+            []
         ]
+
+
+renderTags : Maybe TagType -> Tags -> Html Msg
+renderTags tagFilter tags =
+    div [ class [ TagContainer ] ]
+        (List.map (renderTag tagFilter) tags)
+
+
+renderTag : Maybe TagType -> TagType -> Html Msg
+renderTag tagFilter tag =
+    let
+        tagClass =
+            case Just tag == tagFilter of
+                True ->
+                    [ TagItemActive ]
+
+                False ->
+                    [ TagItem ]
+    in
+        div
+            [ class tagClass
+            , onClick (UpdateTagFilter tag)
+            ]
+            [ text (toString tag) ]

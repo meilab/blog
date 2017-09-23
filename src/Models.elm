@@ -1,7 +1,7 @@
 module Models exposing (..)
 
 import Routing exposing (Route)
-import Types exposing (Content)
+import Types exposing (Content, TagType(..), Tags)
 import Pages
 
 
@@ -16,15 +16,31 @@ type alias Ui =
 type alias Model =
     { route : Route
     , url : Url
+    , tags : Tags
     , currentContent : Content
-    , searchPost : Maybe String
+    , titleFilter : Maybe String
+    , tagFilter : Maybe TagType
     }
+
+
+tags : Tags
+tags =
+    [ Elm
+    , Elixir
+    , IoT
+    , C
+    , ElmTraining
+    , ElmInAction
+    , PhotoGallery
+    ]
 
 
 initialModel : Route -> Url -> Model
 initialModel route url =
     { route = route
     , url = url
+    , tags = tags
     , currentContent = Pages.home
-    , searchPost = Nothing
+    , titleFilter = Nothing
+    , tagFilter = Nothing
     }

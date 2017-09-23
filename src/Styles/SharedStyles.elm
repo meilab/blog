@@ -42,6 +42,7 @@ type CssClass
     | TagContainer
     | TagItem
     | TagItemActive
+    | Searcher
       -- Header and Footer
     | Header
     | HeaderNavWrapper

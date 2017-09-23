@@ -167,6 +167,11 @@ css =
                     ]
                 ]
             ]
+        , class Searcher
+            [ width (pct 60)
+            , height (Css.rem 2)
+            , textAlign center
+            ]
         , class Spacing
             [ padding2 (px 50) zero ]
         , mediaQuery "screen and (max-width : 48em)"

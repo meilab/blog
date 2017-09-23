@@ -179,6 +179,12 @@ nav  ul {
     color: #FFDC00;
 }
 
+.meilabSearcher {
+    width: 60%;
+    height: 2rem;
+    text-align: center;
+}
+
 .meilabSpacing {
     padding: 50px 0;
 }

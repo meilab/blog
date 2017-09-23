@@ -8,7 +8,7 @@ import Html.CssHelpers exposing (withNamespace)
 import Types exposing (Content)
 import ViewHelpers exposing (formatDate, externalLink)
 import Posts exposing (posts)
-import ContentUtils exposing (filterByTitle)
+import ContentUtils exposing (filterByTitle, filterByTag)
 import ViewHelpers exposing (formatDate, normalLinkItem)
 import Styles.SharedStyles exposing (..)
 import Views.SharedViews exposing (..)
@@ -26,4 +26,8 @@ archiveView model =
 renderArchives : Model -> Html Msg
 renderArchives model =
     div [ class [ PostPreviewContainer ] ]
-        (List.map (renderPostPreview model.url.base_url) <| filterByTitle posts model.searchPost)
+        (posts
+            |> filterByTitle model.titleFilter
+            |> filterByTag model.tagFilter
+            |> List.map (renderPostPreview model.url.base_url)
+        )

@@ -1,6 +1,6 @@
 module ContentUtils exposing (..)
 
-import Types exposing (Content, ContentType(..))
+import Types exposing (Content, ContentType(..), TagType)
 import List
 import Pages
 import Posts
@@ -34,14 +34,36 @@ filterByContentType contentList contentType =
         |> List.filter (\item -> item.contentType == contentType)
 
 
-filterByTitle : List Content -> Maybe String -> List Content
-filterByTitle contentList title =
+filterByTitle : Maybe String -> List Content -> List Content
+filterByTitle title contentList =
     case title of
         Just title ->
             contentList
                 |> List.filter
                     (\item ->
                         String.contains (String.toLower title) (String.toLower item.title)
+                    )
+
+        Nothing ->
+            sortByDate contentList
+
+
+filterByTag : Maybe TagType -> List Content -> List Content
+filterByTag tag contentList =
+    case tag of
+        Just tag ->
+            contentList
+                |> List.filter
+                    (\item ->
+                        item.tags
+                            |> List.foldl
+                                (\itemTag containTag ->
+                                    if (containTag == True || itemTag == tag) then
+                                        True
+                                    else
+                                        False
+                                )
+                                False
                     )
 
         Nothing ->

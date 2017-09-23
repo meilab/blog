@@ -83,5 +83,20 @@ update msg model =
                 , Cmd.none
                 )
 
+        UpdateTitleFilter title ->
+            ( { model | titleFilter = Just title }, Cmd.none )
+
+        UpdateTagFilter tag ->
+            let
+                newTagFilter =
+                    case (Just tag == model.tagFilter) of
+                        True ->
+                            Nothing
+
+                        False ->
+                            Just tag
+            in
+                ( { model | tagFilter = newTagFilter }, Cmd.none )
+
         NoOp ->
             ( model, Cmd.none )

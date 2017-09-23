@@ -9,7 +9,7 @@ import Html.Events exposing (onClick)
 import Html.Attributes exposing (href)
 import Html.CssHelpers exposing (withNamespace)
 import Posts exposing (posts)
-import ContentUtils exposing (filterByTitle)
+import ContentUtils exposing (filterByTitle, filterByTag)
 import Types exposing (Author)
 import ViewHelpers exposing (formatDate, navigationOnClick, externalLink)
 import Styles.SharedStyles exposing (..)
@@ -33,6 +33,7 @@ content model =
         , renderMarkdown model.currentContent.markdown
         , renderPosts model
         , morePostsLink model
+        , renderTags model.tagFilter model.tags
         , renderProjects
         ]
 
@@ -40,7 +41,9 @@ content model =
 renderPosts : Model -> Html Msg
 renderPosts model =
     div [ class [ PostPreviewContainer ] ]
-        (filterByTitle posts model.searchPost
+        (posts
+            |> filterByTitle model.titleFilter
+            |> filterByTag model.tagFilter
             |> List.take 5
             |> List.map (renderPostPreview model.url.base_url)
         )

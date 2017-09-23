@@ -16940,16 +16940,37 @@ var _meilab$meilab$ContentUtils$latest = function (_p0) {
 		_elm_lang$core$List$head(
 			_meilab$meilab$ContentUtils$sortByDate(_p0)));
 };
-var _meilab$meilab$ContentUtils$filterByTitle = F2(
-	function (contentList, title) {
-		var _p1 = title;
+var _meilab$meilab$ContentUtils$filterByTag = F2(
+	function (tag, contentList) {
+		var _p1 = tag;
 		if (_p1.ctor === 'Just') {
+			return A2(
+				_elm_lang$core$List$filter,
+				function (item) {
+					return A3(
+						_elm_lang$core$List$foldl,
+						F2(
+							function (itemTag, containTag) {
+								return (_elm_lang$core$Native_Utils.eq(containTag, true) || _elm_lang$core$Native_Utils.eq(itemTag, _p1._0)) ? true : false;
+							}),
+						false,
+						item.tags);
+				},
+				contentList);
+		} else {
+			return _meilab$meilab$ContentUtils$sortByDate(contentList);
+		}
+	});
+var _meilab$meilab$ContentUtils$filterByTitle = F2(
+	function (title, contentList) {
+		var _p2 = title;
+		if (_p2.ctor === 'Just') {
 			return A2(
 				_elm_lang$core$List$filter,
 				function (item) {
 					return A2(
 						_elm_lang$core$String$contains,
-						_elm_lang$core$String$toLower(_p1._0),
+						_elm_lang$core$String$toLower(_p2._0),
 						_elm_lang$core$String$toLower(item.title));
 				},
 				contentList);
@@ -16992,6 +17013,12 @@ var _meilab$meilab$ContentUtils$findByRoute = F2(
 var _meilab$meilab$ContentUtils$allContent = A2(_elm_lang$core$Basics_ops['++'], _meilab$meilab$Pages$pages, _meilab$meilab$Posts$posts);
 
 var _meilab$meilab$Messages$NoOp = {ctor: 'NoOp'};
+var _meilab$meilab$Messages$UpdateTagFilter = function (a) {
+	return {ctor: 'UpdateTagFilter', _0: a};
+};
+var _meilab$meilab$Messages$UpdateTitleFilter = function (a) {
+	return {ctor: 'UpdateTitleFilter', _0: a};
+};
 var _meilab$meilab$Messages$FetchedContent = function (a) {
 	return {ctor: 'FetchedContent', _0: a};
 };
@@ -17045,9 +17072,38 @@ var _meilab$meilab$Helpers$cmd = function (msg) {
 		_elm_lang$core$Task$succeed(msg));
 };
 
+var _meilab$meilab$Models$tags = {
+	ctor: '::',
+	_0: _meilab$meilab$Types$Elm,
+	_1: {
+		ctor: '::',
+		_0: _meilab$meilab$Types$Elixir,
+		_1: {
+			ctor: '::',
+			_0: _meilab$meilab$Types$IoT,
+			_1: {
+				ctor: '::',
+				_0: _meilab$meilab$Types$C,
+				_1: {
+					ctor: '::',
+					_0: _meilab$meilab$Types$ElmTraining,
+					_1: {
+						ctor: '::',
+						_0: _meilab$meilab$Types$ElmInAction,
+						_1: {
+							ctor: '::',
+							_0: _meilab$meilab$Types$PhotoGallery,
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	}
+};
 var _meilab$meilab$Models$initialModel = F2(
 	function (route, url) {
-		return {route: route, url: url, currentContent: _meilab$meilab$Pages$home, searchPost: _elm_lang$core$Maybe$Nothing};
+		return {route: route, url: url, tags: _meilab$meilab$Models$tags, currentContent: _meilab$meilab$Pages$home, titleFilter: _elm_lang$core$Maybe$Nothing, tagFilter: _elm_lang$core$Maybe$Nothing};
 	});
 var _meilab$meilab$Models$Url = function (a) {
 	return {base_url: a};
@@ -17055,9 +17111,9 @@ var _meilab$meilab$Models$Url = function (a) {
 var _meilab$meilab$Models$Ui = function (a) {
 	return {sideMenuActive: a};
 };
-var _meilab$meilab$Models$Model = F4(
-	function (a, b, c, d) {
-		return {route: a, url: b, currentContent: c, searchPost: d};
+var _meilab$meilab$Models$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {route: a, url: b, tags: c, currentContent: d, titleFilter: e, tagFilter: f};
 	});
 
 var _rtfeldman$elm_css_util$Css_Helpers$toCssIdentifier = function (identifier) {
@@ -17213,6 +17269,7 @@ var _meilab$meilab$Styles_SharedStyles$Footer = {ctor: 'Footer'};
 var _meilab$meilab$Styles_SharedStyles$HeaderNav = {ctor: 'HeaderNav'};
 var _meilab$meilab$Styles_SharedStyles$HeaderNavWrapper = {ctor: 'HeaderNavWrapper'};
 var _meilab$meilab$Styles_SharedStyles$Header = {ctor: 'Header'};
+var _meilab$meilab$Styles_SharedStyles$Searcher = {ctor: 'Searcher'};
 var _meilab$meilab$Styles_SharedStyles$TagItemActive = {ctor: 'TagItemActive'};
 var _meilab$meilab$Styles_SharedStyles$TagItem = {ctor: 'TagItem'};
 var _meilab$meilab$Styles_SharedStyles$TagContainer = {ctor: 'TagContainer'};
@@ -22763,10 +22820,92 @@ var _meilab$meilab$Views_SharedViews$hero = F2(
 									}
 								}
 							}),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$placeholder('Type to Search'),
+									_1: {
+										ctor: '::',
+										_0: _meilab$meilab$Views_SharedViews$class(
+											{
+												ctor: '::',
+												_0: _meilab$meilab$Styles_SharedStyles$Searcher,
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(_meilab$meilab$Messages$UpdateTitleFilter),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			});
+	});
+var _meilab$meilab$Views_SharedViews$renderTag = F2(
+	function (tagFilter, tag) {
+		var tagClass = function () {
+			var _p4 = _elm_lang$core$Native_Utils.eq(
+				_elm_lang$core$Maybe$Just(tag),
+				tagFilter);
+			if (_p4 === true) {
+				return {
+					ctor: '::',
+					_0: _meilab$meilab$Styles_SharedStyles$TagItemActive,
+					_1: {ctor: '[]'}
+				};
+			} else {
+				return {
+					ctor: '::',
+					_0: _meilab$meilab$Styles_SharedStyles$TagItem,
+					_1: {ctor: '[]'}
+				};
+			}
+		}();
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Views_SharedViews$class(tagClass),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onClick(
+						_meilab$meilab$Messages$UpdateTagFilter(tag)),
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(
+					_elm_lang$core$Basics$toString(tag)),
+				_1: {ctor: '[]'}
+			});
+	});
+var _meilab$meilab$Views_SharedViews$renderTags = F2(
+	function (tagFilter, tags) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _meilab$meilab$Views_SharedViews$class(
+					{
+						ctor: '::',
+						_0: _meilab$meilab$Styles_SharedStyles$TagContainer,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			},
+			A2(
+				_elm_lang$core$List$map,
+				_meilab$meilab$Views_SharedViews$renderTag(tagFilter),
+				tags));
 	});
 
 var _meilab$meilab$Trainings$elmBasics = {
@@ -22912,7 +23051,10 @@ var _meilab$meilab$Views_Archives$renderArchives = function (model) {
 		A2(
 			_elm_lang$core$List$map,
 			_meilab$meilab$Views_SharedViews$renderPostPreview(model.url.base_url),
-			A2(_meilab$meilab$ContentUtils$filterByTitle, _meilab$meilab$Posts$posts, model.searchPost)));
+			A2(
+				_meilab$meilab$ContentUtils$filterByTag,
+				model.tagFilter,
+				A2(_meilab$meilab$ContentUtils$filterByTitle, model.titleFilter, _meilab$meilab$Posts$posts))));
 };
 var _meilab$meilab$Views_Archives$archiveView = function (model) {
 	return _meilab$meilab$Views_Archives$renderArchives(model);
@@ -23079,7 +23221,10 @@ var _meilab$meilab$Views_Home$renderPosts = function (model) {
 			A2(
 				_elm_lang$core$List$take,
 				5,
-				A2(_meilab$meilab$ContentUtils$filterByTitle, _meilab$meilab$Posts$posts, model.searchPost))));
+				A2(
+					_meilab$meilab$ContentUtils$filterByTag,
+					model.tagFilter,
+					A2(_meilab$meilab$ContentUtils$filterByTitle, model.titleFilter, _meilab$meilab$Posts$posts)))));
 };
 var _meilab$meilab$Views_Home$morePostsLink = function (model) {
 	var slug = A2(_meilab$meilab$Routing$urlFor, model.url.base_url, _meilab$meilab$Routing$ArchiveRoute);
@@ -23165,8 +23310,12 @@ var _meilab$meilab$Views_Home$content = function (model) {
 							_0: _meilab$meilab$Views_Home$morePostsLink(model),
 							_1: {
 								ctor: '::',
-								_0: _meilab$meilab$Views_Home$renderProjects,
-								_1: {ctor: '[]'}
+								_0: A2(_meilab$meilab$Views_SharedViews$renderTags, model.tagFilter, model.tags),
+								_1: {
+									ctor: '::',
+									_0: _meilab$meilab$Views_Home$renderProjects,
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}
@@ -23383,6 +23532,35 @@ var _meilab$meilab$Update$update = F2(
 						{currentContent: newContent}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
+			case 'UpdateTitleFilter':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							titleFilter: _elm_lang$core$Maybe$Just(_p2._0)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'UpdateTagFilter':
+				var _p4 = _p2._0;
+				var newTagFilter = function () {
+					var _p3 = _elm_lang$core$Native_Utils.eq(
+						_elm_lang$core$Maybe$Just(_p4),
+						model.tagFilter);
+					if (_p3 === true) {
+						return _elm_lang$core$Maybe$Nothing;
+					} else {
+						return _elm_lang$core$Maybe$Just(_p4);
+					}
+				}();
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{tagFilter: newTagFilter}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			default:
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
@@ -23421,7 +23599,7 @@ var _meilab$meilab$Main$main = A2(
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
 if (typeof _meilab$meilab$Main$main !== 'undefined') {
-    _meilab$meilab$Main$main(Elm['Main'], 'Main', {"types":{"unions":{"Messages.Msg":{"args":[],"tags":{"FetchedContent":["RemoteData.WebData String"],"OnLocationChange":["Navigation.Location"],"NewUrl":["String"],"NoOp":[]}},"Dict.LeafColor":{"args":[],"tags":{"LBBlack":[],"LBlack":[]}},"Dict.Dict":{"args":["k","v"],"tags":{"RBNode_elm_builtin":["Dict.NColor","k","v","Dict.Dict k v","Dict.Dict k v"],"RBEmpty_elm_builtin":["Dict.LeafColor"]}},"RemoteData.RemoteData":{"args":["e","a"],"tags":{"NotAsked":[],"Success":["a"],"Loading":[],"Failure":["e"]}},"Dict.NColor":{"args":[],"tags":{"BBlack":[],"Red":[],"NBlack":[],"Black":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String"],"NetworkError":[],"Timeout":[],"BadStatus":["Http.Response String"],"BadPayload":["String","Http.Response String"]}}},"aliases":{"RemoteData.WebData":{"args":["a"],"type":"RemoteData.RemoteData Http.Error a"},"Http.Response":{"args":["body"],"type":"{ url : String , status : { code : Int, message : String } , headers : Dict.Dict String String , body : body }"},"Navigation.Location":{"args":[],"type":"{ href : String , host : String , hostname : String , protocol : String , origin : String , port_ : String , pathname : String , search : String , hash : String , username : String , password : String }"}},"message":"Messages.Msg"},"versions":{"elm":"0.18.0"}});
+    _meilab$meilab$Main$main(Elm['Main'], 'Main', {"types":{"unions":{"Messages.Msg":{"args":[],"tags":{"FetchedContent":["RemoteData.WebData String"],"OnLocationChange":["Navigation.Location"],"UpdateTitleFilter":["String"],"NewUrl":["String"],"UpdateTagFilter":["Types.TagType"],"NoOp":[]}},"Dict.LeafColor":{"args":[],"tags":{"LBBlack":[],"LBlack":[]}},"Types.TagType":{"args":[],"tags":{"ElmTraining":[],"PhotoGallery":[],"IoT":[],"Elixir":[],"Elm":[],"ElmInAction":[],"C":[]}},"Dict.Dict":{"args":["k","v"],"tags":{"RBNode_elm_builtin":["Dict.NColor","k","v","Dict.Dict k v","Dict.Dict k v"],"RBEmpty_elm_builtin":["Dict.LeafColor"]}},"RemoteData.RemoteData":{"args":["e","a"],"tags":{"NotAsked":[],"Success":["a"],"Loading":[],"Failure":["e"]}},"Dict.NColor":{"args":[],"tags":{"BBlack":[],"Red":[],"NBlack":[],"Black":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String"],"NetworkError":[],"Timeout":[],"BadStatus":["Http.Response String"],"BadPayload":["String","Http.Response String"]}}},"aliases":{"RemoteData.WebData":{"args":["a"],"type":"RemoteData.RemoteData Http.Error a"},"Http.Response":{"args":["body"],"type":"{ url : String , status : { code : Int, message : String } , headers : Dict.Dict String String , body : body }"},"Navigation.Location":{"args":[],"type":"{ href : String , host : String , hostname : String , protocol : String , origin : String , port_ : String , pathname : String , search : String , hash : String , username : String , password : String }"}},"message":"Messages.Msg"},"versions":{"elm":"0.18.0"}});
 }
 
 if (typeof define === "function" && define['amd'])
