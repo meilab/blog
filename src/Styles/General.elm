@@ -48,16 +48,10 @@ css =
                     ]
                 ]
             ]
-        , a
-            [ textDecoration none
-            , textAlign center
-            , display block
-            , padding (px 10)
-            , color black
-            ]
         , class Layout
             [ displayFlex
             , flexDirection column
+            , alignItems center
             ]
         , class Container
             [ displayFlex
@@ -114,6 +108,15 @@ css =
             , listStyle none
             , padding zero
             , margin zero
+            , descendants
+                [ a
+                    [ textDecoration none
+                    , textAlign center
+                    , display block
+                    , padding (px 10)
+                    , color black
+                    ]
+                ]
             ]
         , class MenuListVertical
             [ flexDirection column ]

@@ -38,17 +38,10 @@ nav  ul {
     text-align: center;
 }
 
-a {
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    padding: 10px;
-    color: #111111;
-}
-
 .meilabLayout {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .meilabContainer {
@@ -119,6 +112,14 @@ a {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.meilabMenuList  a, .meilabMenuListVertical  a, .meilabHeaderMenuList  a {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    color: #111111;
 }
 
 .meilabMenuListVertical {
@@ -338,9 +339,17 @@ a {
     display: flex;
 }
 
-.meilabTagItem {
-    flex: 1;
-    border: 1px solid #dddddd;
+.meilabTagItem, .meilabTagItemActive {
+    flex: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
     margin: 0.3em;
     padding: 0.3em;
+}
+
+.meilabTagItemActive {
+    background-color: #3b5998;
+    color: #FFFFFF;
 }

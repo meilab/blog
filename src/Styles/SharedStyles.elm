@@ -41,6 +41,7 @@ type CssClass
     | Spacing
     | TagContainer
     | TagItem
+    | TagItemActive
       -- Header and Footer
     | Header
     | HeaderNavWrapper

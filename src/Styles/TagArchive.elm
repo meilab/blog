@@ -16,10 +16,19 @@ css =
         [ class TagContainer
             [ displayFlex
             ]
-        , class TagItem
-            [ flex (int 1)
-            , border3 (px 1) solid silver
+        , each [ class TagItem, class TagItemActive ]
+            [ flex (int 0)
+            , displayFlex
+            , justifyContent flexStart
+            , alignItems center
+            , textAlign center
+
+            --, border3 (px 1) solid silver
             , margin (Css.em 0.3)
             , padding (Css.em 0.3)
+            ]
+        , class TagItemActive
+            [ backgroundColor facebook
+            , color snow
             ]
         ]
