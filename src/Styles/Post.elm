@@ -18,16 +18,6 @@ css =
             , marginLeft auto
             , marginRight auto
             ]
-        , class PostContainer
-            [ padding (Css.em 1.5) ]
-        , class PostPreviewContainer
-            [ displayFlex
-            , width (pct 100)
-            , flexDirection column
-            , justifyContent center
-            , alignItems center
-            , maxWidth (px 759)
-            ]
         , class PostPreview
             [ displayFlex
             , width (pct 100)
@@ -98,7 +88,5 @@ css =
         , class PostHead
             []
         , mediaQuery "screen and (min-width : 48em)"
-            [ class PostContainer
-                [ padding2 zero (pct 12) ]
-            ]
+            []
         ]

@@ -58,10 +58,12 @@ css =
             ]
         , class ContentContainer
             [ flex (int 1)
+            , width (pct 100)
             , displayFlex
             , flexDirection column
             , alignItems center
             , maxWidth (px 759)
+            , padding (Css.rem 1.5)
             ]
         , each [ class HomePageHero, class PostHero ]
             [ color snow
@@ -78,6 +80,8 @@ css =
             ]
         , class HomePageHero
             [ height (vh 60)
+            , minHeight (px 240)
+            , padding2 (pct 15) zero
             ]
         , class PostHero
             [ height (vh 60) ]
@@ -174,11 +178,12 @@ css =
             ]
         , class Spacing
             [ padding2 (px 50) zero ]
-        , mediaQuery "screen and (max-width : 48em)"
+        , mediaQuery "screen and (min-width : 48em)"
             [ class HomePageHero
                 [ height (vh 60)
-                , minHeight (px 240)
-                , padding2 (pct 15) zero
+                , padding2 zero zero
                 ]
+            , class ContentContainer
+                [ padding2 zero (pct 12) ]
             ]
         ]

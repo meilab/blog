@@ -6,7 +6,6 @@ import Html.CssHelpers exposing (withNamespace)
 type CssClass
     = Layout
     | Container
-    | PostPreviewContainer
     | PostPreview
     | PostPreviewMeta
     | PostPreviewTitle
@@ -54,7 +53,6 @@ type CssClass
     | MorePostsLink
     | PostHero
     | BlogPost
-    | PostContainer
     | PostHead
 
 

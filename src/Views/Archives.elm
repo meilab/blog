@@ -25,7 +25,7 @@ archiveView model =
 
 renderArchives : Model -> Html Msg
 renderArchives model =
-    div [ class [ PostPreviewContainer ] ]
+    div [ class [ ContentContainer ] ]
         (posts
             |> filterByTitle model.titleFilter
             |> filterByTag model.tagFilter

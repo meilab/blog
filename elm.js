@@ -17259,7 +17259,6 @@ var _rtfeldman$elm_css_helpers$Html_CssHelpers$Namespace = F4(
 
 var _meilab$meilab$Styles_SharedStyles$meilabNamespace = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('meilab');
 var _meilab$meilab$Styles_SharedStyles$PostHead = {ctor: 'PostHead'};
-var _meilab$meilab$Styles_SharedStyles$PostContainer = {ctor: 'PostContainer'};
 var _meilab$meilab$Styles_SharedStyles$BlogPost = {ctor: 'BlogPost'};
 var _meilab$meilab$Styles_SharedStyles$PostHero = {ctor: 'PostHero'};
 var _meilab$meilab$Styles_SharedStyles$MorePostsLink = {ctor: 'MorePostsLink'};
@@ -17305,7 +17304,6 @@ var _meilab$meilab$Styles_SharedStyles$PostPreviewSubtitle = {ctor: 'PostPreview
 var _meilab$meilab$Styles_SharedStyles$PostPreviewTitle = {ctor: 'PostPreviewTitle'};
 var _meilab$meilab$Styles_SharedStyles$PostPreviewMeta = {ctor: 'PostPreviewMeta'};
 var _meilab$meilab$Styles_SharedStyles$PostPreview = {ctor: 'PostPreview'};
-var _meilab$meilab$Styles_SharedStyles$PostPreviewContainer = {ctor: 'PostPreviewContainer'};
 var _meilab$meilab$Styles_SharedStyles$Container = {ctor: 'Container'};
 var _meilab$meilab$Styles_SharedStyles$Layout = {ctor: 'Layout'};
 
@@ -23043,7 +23041,7 @@ var _meilab$meilab$Views_Archives$renderArchives = function (model) {
 			_0: _meilab$meilab$Views_Archives$class(
 				{
 					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$PostPreviewContainer,
+					_0: _meilab$meilab$Styles_SharedStyles$ContentContainer,
 					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
@@ -23210,7 +23208,7 @@ var _meilab$meilab$Views_Home$renderPosts = function (model) {
 			_0: _meilab$meilab$Views_Home$class(
 				{
 					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$PostPreviewContainer,
+					_0: _meilab$meilab$Styles_SharedStyles$ContentContainer,
 					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
@@ -23363,7 +23361,7 @@ var _meilab$meilab$Views_Page$content = function (model) {
 			_0: _meilab$meilab$Views_Page$class(
 				{
 					ctor: '::',
-					_0: _meilab$meilab$Styles_SharedStyles$PostContainer,
+					_0: _meilab$meilab$Styles_SharedStyles$ContentContainer,
 					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
