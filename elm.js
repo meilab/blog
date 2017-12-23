@@ -19605,7 +19605,7 @@ var _meilab$meilab$Update$update = F2(
 		}
 	});
 
-var _meilab$meilab$Main$ghProjectName = '';
+var _meilab$meilab$Main$ghProjectName = 'Elm-Blog';
 var _meilab$meilab$Main$init = function (location) {
 	var base_url = function () {
 		var _p0 = A2(
